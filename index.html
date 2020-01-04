@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,35 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Othello</title>
 </head>
+
 <body>
+    <header>
+        <div class="overlay" id="overlayID">
+            <nav class="main-nav">
+                <div class="header-row">
+                    <h1 class="header-h1">Welcome to Othello!</h1>
+                    <a href="#" id="close-btn" onclick="closeNav()">X</a>
+                </div>
+                <div>
+                    <p>Pick a board size:</p>
+                    <ul>
+                        <li><a href="#" class="board-btn" onclick="chooseSize()">6x6</a></li>
+                        <li><a href="#" class="board-btn" onclick="chooseSize()">8x8</a></li>
+                        <li><a href="#" class="board-btn" onclick="chooseSize()">10x10</a></li>
+                    </ul>
+                    <span id="start-btn" class="board-btn" onclick="chooseSize()">START!</span>
+
+                </div>
+            </nav>
+        </div>
+    </header>
     <section>
-        <div id="board" class="board_container">
-            
+        <div class="board_container">
+            <div id="board"></div>
         </div>
     </section>
-    
+
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
+
 </html>
