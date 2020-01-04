@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="overlay" id="overlayID">
-            <nav class="main-nav" id="mainNav">
+            <div class="start-nav" id="startNav">
                 <a href="#" class="btn" id="close-btn" onclick="closeNav()">&times;</a>
                 <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
                 <p class="p-text">Pick a board size:</p>
@@ -22,8 +22,14 @@
                     <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">10x10</a></li>
                 </ul>
                 <a href="#" id="start-btn" class=" btn board-btn" onclick="chooseSize()">START!</a>
-            </nav>
+            </div>
         </div>
+        <nav class="main-nav">
+            <span class="othello-logo">OTHELLO</span>
+            <div class="menu-btn-container">
+                <span class="btn menu-btn uppercase" onclick="openNav()">Menu</span>
+            </div>
+        </nav>
     </header>
     <section class="board-section">
         <div class="board_container">

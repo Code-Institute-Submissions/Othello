@@ -26,9 +26,9 @@ h1 {
 }
 
 
-/************  Main Navigation   *************/
+/************  Start Page Main Navigation   *************/
 
-.main-nav {
+.start-nav {
     position: fixed;
     top: 0;
     height: 100%;
@@ -85,7 +85,44 @@ h1 {
     margin: .2em;
 }
 
+/************  Nav-Bar Game Page   *************/
 
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3em;
+    width: 100%;
+    z-index: 2;
+    background-color: #5ad096;
+    border-bottom: 1px solid #2a4d4d;
+}
+
+.othello-logo {
+    position: relative;
+    top: .4em;
+    left: .8em;
+    font-size: 1.5em;
+}
+
+.menu-btn-container {
+    position: relative;
+    float: right;
+    height: 98%;
+    width: 8.5em;
+    background-color: #5ba8a9;
+    border: 1px solid #2a4d4d;
+}
+
+.menu-btn {
+    float: right;
+    color: #000;
+    cursor: pointer;
+    position: relative;
+    top: .2em;
+    right: 1em;
+    font-size: 1.8em;
+}
 
 
 /************  The Board   *************/
@@ -130,7 +167,7 @@ h1 {
         text-align: center;
     }
     
-    #mainNav {
+    #startNav {
         background-color: rgba(4,47,54, .9);
         color: #f5f5f5;
         width: 40em;

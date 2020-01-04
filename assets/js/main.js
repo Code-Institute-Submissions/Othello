@@ -22,11 +22,16 @@ var currentPlayer = playerWhite;
 //close the main navigation, hiding it by changing height 100% to 0 %         
 function closeNav() {
     document.getElementById('overlayID').style.height = "0%";
-    document.getElementById('mainNav').style.display = "none";
+    document.getElementById('startNav').style.display = "none";
 }
 
 function chooseSize(sizeBtn) {
     
+}
+
+function openNav() {
+    document.getElementById('overlayID').style.height = "100%";
+    document.getElementById('startNav').style.display = "block";
 }
 
 //Creates the squares that will make up the board. Using canvas to be able 
