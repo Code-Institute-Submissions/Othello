@@ -12,25 +12,20 @@
 <body>
     <header>
         <div class="overlay" id="overlayID">
-            <nav class="main-nav">
-                <div class="header-row">
-                    <h1 class="header-h1">Welcome to Othello!</h1>
-                    <a href="#" id="close-btn" onclick="closeNav()">X</a>
-                </div>
-                <div>
-                    <p>Pick a board size:</p>
-                    <ul>
-                        <li><a href="#" class="board-btn" onclick="chooseSize()">6x6</a></li>
-                        <li><a href="#" class="board-btn" onclick="chooseSize()">8x8</a></li>
-                        <li><a href="#" class="board-btn" onclick="chooseSize()">10x10</a></li>
-                    </ul>
-                    <span id="start-btn" class="board-btn" onclick="chooseSize()">START!</span>
-
-                </div>
+            <nav class="main-nav" id="mainNav">
+                <a href="#" class="btn" id="close-btn" onclick="closeNav()">&times;</a>
+                <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
+                <p class="p-text">Pick a board size:</p>
+                <ul class="size-btn-list">
+                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">6x6</a></li>
+                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">8x8</a></li>
+                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">10x10</a></li>
+                </ul>
+                <a href="#" id="start-btn" class=" btn board-btn" onclick="chooseSize()">START!</a>
             </nav>
         </div>
     </header>
-    <section>
+    <section class="board-section">
         <div class="board_container">
             <div id="board"></div>
         </div>

@@ -1,17 +1,28 @@
 
 var board = document.getElementById('board');
-var squareSize = 70;
+var squareSize;
 var size = 8;
+
+const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
+if (mqMediumMobile.matches && size >= 8) {
+    squareSize = 38;
+} else if (mqMediumMobile.matches) {
+    squareSize = 45;
+} else {
+    squareSize = 60;
+}
+
 
 const playerWhite = 'WHITE';
 const playerBlack = 'BLACK';
 var currentPlayer = playerWhite;
 
-        //Section for the main navigation
+////// Section for the main navigation ////////
 
 //close the main navigation, hiding it by changing height 100% to 0 %         
 function closeNav() {
     document.getElementById('overlayID').style.height = "0%";
+    document.getElementById('mainNav').style.display = "none";
 }
 
 function chooseSize(sizeBtn) {
@@ -45,10 +56,11 @@ function makeSquare(x, y) {
 
 function centerBoard() {
     var boardWidth = (squareSize * size) + 'px';
-    var centerString = "calc((80vw - "+ boardWidth +")/2)";
+    var centerString = "calc((100vw - "+ boardWidth +")/2)";
     console.log(centerString);
     
     board.style.left = centerString;
+    board.style.right = centerString;
 }
 
 
@@ -59,7 +71,7 @@ function createBoard(size) {
             makeSquare(x, y);
             
             if ((x + y) % 2 == 0) { //making every second square a darker color
-                document.getElementById(`position`+ '_'+ x.toString() +'_'+ y.toString()).style.backgroundColor = '#013220';
+                document.getElementById(`position`+ '_'+ x.toString() +'_'+ y.toString()).style.backgroundColor = '#056535';
             }
         }
     }
