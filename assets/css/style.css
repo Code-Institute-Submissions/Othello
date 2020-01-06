@@ -93,13 +93,27 @@ h1 {
     display: inline-block;
     list-style: none;
     font-size: 1.5em;
-    border: 1px solid;
     padding: .3em .5em;
     margin: .2em;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transition: .5s;
 }
 
 .board-button:hover {
     color: #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-top: 0px solid #fff;
+    border-bottom: 0px solid #fff;
+    background-color: rgb(4,47,54)
+}
+
+.menu-icon {
+    position: relative;
+    float: right;
+    top: .8em;
+    right: .8em;
 }
 
 /************  Nav-Bar Game Page   *************/
@@ -124,6 +138,7 @@ h1 {
 
 .menu-button-container {
     position: relative;
+    margin: auto;
     float: right;
     height: 100%;
     width: 8.5em;
@@ -144,6 +159,15 @@ h1 {
     font-size: 1.8em;
 }
 
+.ff-button {
+    font-size: 1.2em;
+    top: .5em;
+}
+
+.rules-button {
+    font-size: 1.5em;
+    top: .2em;
+}
 
 /************  The Board   *************/
 
@@ -153,10 +177,6 @@ h1 {
     background-color: rgba(4,47,54, .9);
     text-align: center;
     z-index: 1;
-    /*
-    margin-left: auto;
-    margin-right: auto;
-    */
 }
 
 .board-container {
@@ -223,7 +243,11 @@ h1 {
 /************  Colors   *************/
 
 .bg-clr-dutch {
-background-color :#efdfbb
+background-color :#efdfbb;
+}
+
+.bg-clr-navajo {
+    background-color: #e6cea9;
 }
 
 .bg-clr-darkblue {
@@ -305,6 +329,28 @@ background-color :#efdfbb
         margin-top: 2em;
         color: #fff;
         font-size: 1.5em;
+    }
+    
+    .menu-icon {
+    display: none;
+    }
+}
+
+/*** tablet View ***/
+@media (max-width: 768px) {
+    .menu-button-container {
+        width: 0%;
+        margin-left: 100%;
+        top: .7em;
+        text-align: center;
+        transition: all .5s;
+    }
+    
+    .menu-button {
+        display: inline-block;
+        float: none;
+        padding: auto;
+        margin-left: 2.5em;
     }
 }
 

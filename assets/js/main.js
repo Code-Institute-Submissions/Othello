@@ -6,6 +6,8 @@ const playerWhite = 'WHITE';
 const playerBlack = 'BLACK';
 var currentPlayer = playerWhite;
 
+var menuOpen = false;
+
 ////// Media Queries ////////
 
 const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
@@ -24,18 +26,48 @@ if (mqMediumMobile.matches && size >= 8) {
 ////// Section for the main navigation ////////
 
 //close the main navigation, hiding it by changing height 100% to 0 %         
-function closeNav() {
+function closeMenu() {
     document.getElementById('overlayID').style.height = "0%";
     document.getElementById('startNav').style.display = "none";
 }
 
-function openNav() {
+function openMenu() {
     document.getElementById('overlayID').style.height = "100%";
     document.getElementById('startNav').style.display = "block";
 }
 
-function chooseSize(sizeBtn) {
-    
+function chooseSize(sizeBtn) { //function to select the size of the board
+
+    if(sizeBtn === 6) {
+        size = 6;
+    } else if(sizeBtn === 8) {
+        size = 8;
+    } else if(sizeBtn === 10) {
+        size = 10;
+    } else {
+        size = 8;
+    }
+    createBoard(size);
+}
+
+function startGame() {
+    createBoard(size);
+    closeMenu();
+}
+
+function toggleNav() {
+    var menu = document.getElementsByClassName('menu-button-container');
+    var myWidth;
+    if(menuOpen) {
+        myWidth = "0%";
+        menuOpen = false;
+    } else {
+        myWidth = "50%";
+        menuOpen = true;
+    }
+    for(i = 0; i < 3; i++) {
+        menu[i].style.width = myWidth;
+    }
 }
 
 //Creates the squares that will make up the board. Using canvas to be able 
@@ -74,6 +106,7 @@ function centerBoard() {
 
 //2 dimensional for loop creating a board size of choice by the user
 function createBoard(size) {
+    board.innerHTML = "";
     for(x = 0; x < size; x++) {
         for(y = 0; y < size; y++) {
             makeSquare(x, y);
@@ -126,7 +159,7 @@ function setDisc(x, y, player) {
 
 
 
-createBoard(size);
+
 
 
 setDisc(3, 3, playerBlack);

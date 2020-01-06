@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    
+    <script src="https://kit.fontawesome.com/2ea8c5e5d2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
@@ -16,24 +17,34 @@
     <header>
         <div class="overlay" id="overlayID">
             <div class="start-nav" id="startNav">
-                <a href="#" class="button" id="close-button" onclick="closeNav()">&times;</a>
+                <a href="#" class="button" id="close-button" onclick="closeMenu()">&times;</a>
                 <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
                 <p class="p-text">Pick a board size:</p>
                 <ul class="size-button-list">
-                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">6x6</a></li>
-                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">8x8</a></li>
-                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">10x10</a></li>
+                    <li class="board-button">
+                        <a href="#" class="button" onclick="chooseSize(6)">6x6</a>
+                    </li>
+                    <li class="board-button">
+                        <a href="#" class="button" onclick="chooseSize(8)">8x8</a>
+                    </li>
+                    <li class="board-button"><a href="#" class="button" onclick="chooseSize(10)">10x10</a></li>
                 </ul>
-                <a href="#" id="start-button" class=" button board-button" onclick="chooseSize()">START!</a>
+                <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
+                    START!
+                </a>
             </div>
         </div>
         <nav class="main-nav">
             <span class="othello-logo">OTHELLO</span>
+            <span class="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></span>
+            <div class="menu-button-container bg-clr-navajo">
+                <span class="button menu-button uppercase" onclick="openMenu()">Start</span>
+            </div>
             <div class="menu-button-container bg-clr-dutch">
-                <span class="button menu-button uppercase" onclick="openNav()">Start</span>
+                <a href="#" class="button menu-button rules-button uppercase">Rules</a>
             </div>
             <div class="menu-button-container">
-                <a href="#" class="button menu-button uppercase">Rules</a>
+                <a href="#" class="button menu-button ff-button uppercase">Fun Facts</a>
             </div>
         </nav>
     </header>
@@ -77,8 +88,17 @@
 
 
 
-
+    
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript">
+        createBoard(size);
+        
+        setDisc(3, 3, playerBlack);
+        setDisc(4, 4, playerBlack);
+        setDisc(3, 4, currentPlayer);
+        setDisc(4, 3, currentPlayer);
+
+    </script>
 </body>
 
 </html>
