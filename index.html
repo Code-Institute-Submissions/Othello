@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <title>Othello</title>
 </head>
@@ -13,29 +16,67 @@
     <header>
         <div class="overlay" id="overlayID">
             <div class="start-nav" id="startNav">
-                <a href="#" class="btn" id="close-btn" onclick="closeNav()">&times;</a>
+                <a href="#" class="button" id="close-button" onclick="closeNav()">&times;</a>
                 <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
                 <p class="p-text">Pick a board size:</p>
-                <ul class="size-btn-list">
-                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">6x6</a></li>
-                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">8x8</a></li>
-                    <li class="board-btn"><a href="#" class="btn" onclick="chooseSize()">10x10</a></li>
+                <ul class="size-button-list">
+                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">6x6</a></li>
+                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">8x8</a></li>
+                    <li class="board-button"><a href="#" class="button" onclick="chooseSize()">10x10</a></li>
                 </ul>
-                <a href="#" id="start-btn" class=" btn board-btn" onclick="chooseSize()">START!</a>
+                <a href="#" id="start-button" class=" button board-button" onclick="chooseSize()">START!</a>
             </div>
         </div>
         <nav class="main-nav">
             <span class="othello-logo">OTHELLO</span>
-            <div class="menu-btn-container">
-                <span class="btn menu-btn uppercase" onclick="openNav()">Menu</span>
+            <div class="menu-button-container bg-clr-dutch">
+                <span class="button menu-button uppercase" onclick="openNav()">Start</span>
+            </div>
+            <div class="menu-button-container">
+                <a href="#" class="button menu-button uppercase">Rules</a>
             </div>
         </nav>
     </header>
-    <section class="board-section">
-        <div class="board_container">
-            <div id="board"></div>
+
+    <div class="row no-gutters background-image">
+        <div class="col-lg-8 offset-lg-2 col-md-12 board-section">
+            <div class="row no-gutters board-container">
+                <div class="d-none d-lg-block col-lg-2">
+                    <div class="black-scoreboard">
+                        <div class="circle white-circle"></div>
+                        <p id="black-score" class="p-text">13</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8 col-md-12 board-col">
+                    <div id="board"></div>
+                </div>
+                
+                <div class="d-none d-lg-block col-lg-2">
+                    <div class="white-scoreboard">
+                        <div class="circle black-circle"></div>
+                        <p id="white-score" class="p-text">11</p>
+                    </div>
+                </div>
+                <p id="turn_counter" class="d-none d-lg-block">Your Turn</p>
+            </div>
         </div>
-    </section>
+    </div>
+
+
+    <div class="container-fluid container-score-board">
+        <div class="row score-board-row d-lg-none">
+            <div class="col-md-8 offset-md-2">
+                <div class="score-board">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>

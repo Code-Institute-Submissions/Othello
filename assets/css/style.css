@@ -13,6 +13,19 @@ ul {
     padding: 0;
 }
 
+a,
+li {
+    text-decoration: none;
+    list-style: none;
+}
+
+a:hover,
+li:hover{
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -61,14 +74,14 @@ h1 {
     font-size: 1.8em;
 }
 
-.btn {
+.button {
     text-decoration: none;
     padding: 0;
     margin: 0;
     color: #fff;
 }
 
-#close-btn {
+#close-button {
     color: #fff;
     font-size: 1.5em;
     float: top;
@@ -76,13 +89,17 @@ h1 {
     margin: .5em;
 }
 
-.board-btn {
+.board-button {
     display: inline-block;
     list-style: none;
     font-size: 1.5em;
     border: 1px solid;
     padding: .3em .5em;
     margin: .2em;
+}
+
+.board-button:hover {
+    color: #fff;
 }
 
 /************  Nav-Bar Game Page   *************/
@@ -94,32 +111,35 @@ h1 {
     height: 3em;
     width: 100%;
     z-index: 2;
-    background-color: #5ad096;
-    border-bottom: 1px solid #2a4d4d;
+    background-color: #f0ead6;
+    border-bottom: 1px solid #f3e5ab;
 }
 
 .othello-logo {
     position: relative;
-    top: .4em;
+    top: .3em;
     left: .8em;
     font-size: 1.5em;
 }
 
-.menu-btn-container {
+.menu-button-container {
     position: relative;
     float: right;
-    height: 98%;
+    height: 100%;
     width: 8.5em;
-    background-color: #5ba8a9;
-    border: 1px solid #2a4d4d;
+    background-color: #f7e7ce;
 }
 
-.menu-btn {
+.menu-button-container a:hover {
+    color: #000;
+}
+
+.menu-button {
     float: right;
     color: #000;
     cursor: pointer;
     position: relative;
-    top: .2em;
+    top: .4;
     right: 1em;
     font-size: 1.8em;
 }
@@ -127,21 +147,26 @@ h1 {
 
 /************  The Board   *************/
 
-.board_container {
+.board-section {
     position: relative;
     top: 0;
-    background-color: #042f36;
-    width:100vw;
-    height:130vh;
+    background-color: rgba(4,47,54, .9);
     text-align: center;
     z-index: 1;
+    /*
     margin-left: auto;
     margin-right: auto;
+    */
+}
+
+.board-container {
+    height: 50vh;
+
 }
 
 #board {
     position: absolute;
-    margin-top: 4em;
+    margin-top: 5em;
 }
 
 .squares {
@@ -149,12 +174,69 @@ h1 {
     background-color: #058c49;
     display: inline-block;
     border: 1px solid #003119;
+}
+
+/************  Score Board   *************/
+
+.container-score-board {
+    position: relative;
+    background-color: #e3dac9;
+    width: 100%;
+    height: 50vh;
 
 }
 
+.score-board-row {
+    background-color: rgba(4, 47, 54, .9);
+    padding-bottom: 2em;
+}
+
+.score-board {
+    position: relative;
+    width: 100%;
+    height: 10em;
+    background-color: black;
+    border-radius: .2em .2em 3em 3em;
+}
+
+.circle {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.black-circle {
+    background-color: #110c11;
+    margin: 1em;
+}
+
+.white-circle {
+    background-color: #fdf5e6;
+    margin: 1em;
+}
+
+#black-score {
+    color: #fdf5e6;
+}
+
+/************  Colors   *************/
+
+.bg-clr-dutch {
+background-color :#efdfbb
+}
+
+.bg-clr-darkblue {
+    background-color: rgb(4,47,54);
+}
+
+
 /************  Media Query   *************/
 
+
+/*** Desktop View ***/
 @media (min-width: 767px) {
+    
     .overlay {
         background: url("../images/dice-bg-pic.jpg");
         position: fixed;
@@ -165,6 +247,20 @@ h1 {
         transition: all .5s;
         z-index: 5;
         text-align: center;
+    }
+    
+    .background-image {
+        background: url("../images/dice-bg-pic.jpg");
+        background-attachment: scroll;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        z-index: -4
+    }
+    
+    #board {
+        left: 10%;
+        right: 10%;
     }
     
     #startNav {
@@ -178,7 +274,37 @@ h1 {
         box-shadow: 2px 3px 7px -1px rgba(4,47,54, .9);
     }
     
+    .board-col {
+        width: 20em;
+    }
+    
+    .board-container {
+    height: 120vh;
 
-
+    }
+    
+    .white-scoreboard {
+        background-color: #fdf5e6;
+        width: 90%;
+        height: 10em;
+        margin: 6em .5em;
+        border-radius: 3em .3em .3em 3em;
+    }
+    
+    .black-scoreboard {
+        background-color: #110c11;
+        width: 90%;
+        height: 10em;
+        margin-top: 6em;
+        margin-left: .5em;
+        border-radius: .3em 3em 3em .3em;
+    }
+    
+    #turn_counter {
+        margin: auto;
+        margin-top: 2em;
+        color: #fff;
+        font-size: 1.5em;
+    }
 }
 

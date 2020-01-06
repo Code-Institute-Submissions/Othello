@@ -2,20 +2,24 @@
 var board = document.getElementById('board');
 var squareSize;
 var size = 8;
+const playerWhite = 'WHITE';
+const playerBlack = 'BLACK';
+var currentPlayer = playerWhite;
+
+////// Media Queries ////////
 
 const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
 if (mqMediumMobile.matches && size >= 8) {
     squareSize = 38;
+    centerBoard();
 } else if (mqMediumMobile.matches) {
     squareSize = 45;
+    centerBoard();
 } else {
-    squareSize = 60;
+    squareSize = 55;
 }
 
 
-const playerWhite = 'WHITE';
-const playerBlack = 'BLACK';
-var currentPlayer = playerWhite;
 
 ////// Section for the main navigation ////////
 
@@ -25,13 +29,13 @@ function closeNav() {
     document.getElementById('startNav').style.display = "none";
 }
 
-function chooseSize(sizeBtn) {
-    
-}
-
 function openNav() {
     document.getElementById('overlayID').style.height = "100%";
     document.getElementById('startNav').style.display = "block";
+}
+
+function chooseSize(sizeBtn) {
+    
 }
 
 //Creates the squares that will make up the board. Using canvas to be able 
@@ -62,7 +66,6 @@ function makeSquare(x, y) {
 function centerBoard() {
     var boardWidth = (squareSize * size) + 'px';
     var centerString = "calc((100vw - "+ boardWidth +")/2)";
-    console.log(centerString);
     
     board.style.left = centerString;
     board.style.right = centerString;
@@ -124,7 +127,7 @@ function setDisc(x, y, player) {
 
 
 createBoard(size);
-centerBoard();
+
 
 setDisc(3, 3, playerBlack);
 setDisc(4, 4, playerBlack);
