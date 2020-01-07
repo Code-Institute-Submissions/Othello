@@ -1,13 +1,4 @@
 
-var board = document.getElementById('board');
-var squareSize;
-var size = 8;
-const playerWhite = 'WHITE';
-const playerBlack = 'BLACK';
-var currentPlayer = playerWhite;
-
-var menuOpen = false;
-
 ////// Media Queries ////////
 
 const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
@@ -23,38 +14,8 @@ if (mqMediumMobile.matches && size >= 8) {
 
 
 
-////// Section for the main navigation ////////
-
-//close the main navigation, hiding it by changing height 100% to 0 %         
-function closeMenu() {
-    document.getElementById('overlayID').style.height = "0%";
-    document.getElementById('startNav').style.display = "none";
-}
-
-function openMenu() {
-    document.getElementById('overlayID').style.height = "100%";
-    document.getElementById('startNav').style.display = "block";
-}
-
-function chooseSize(sizeBtn) { //function to select the size of the board
-
-    if(sizeBtn === 6) {
-        size = 6;
-    } else if(sizeBtn === 8) {
-        size = 8;
-    } else if(sizeBtn === 10) {
-        size = 10;
-    } else {
-        size = 8;
-    }
-    createBoard(size);
-}
-
-function startGame() {
-    createBoard(size);
-    closeMenu();
-}
-
+//toggle nav bar. checks of the navbar is closed or open with a boolean statement.
+// runs a for loop to give the all 3 of the menu containers the appropriate width. 
 function toggleNav() {
     var menu = document.getElementsByClassName('menu-button-container');
     var myWidth;
@@ -88,9 +49,9 @@ function makeSquare(x, y) {
     square.width = 100; 
     square.height = 100;
     
-    //giving the square an event handler and calling the setDisc function with the 
+    //giving the square an event handler and calling the drawDisc function with the 
     //coresponding x and y values of the chosen squares ID
-    square.setAttribute('onclick', 'setDisc('+x+', '+y+', currentPlayer)')
+    square.setAttribute('onclick', 'drawDisc('+x+', '+y+', currentPlayer)')
 
 }
 
@@ -105,7 +66,7 @@ function centerBoard() {
 
 
 //2 dimensional for loop creating a board size of choice by the user
-function createBoard(size) {
+function drawBoard(size) {
     board.innerHTML = "";
     for(x = 0; x < size; x++) {
         for(y = 0; y < size; y++) {
@@ -120,7 +81,7 @@ function createBoard(size) {
 
 //Function to create the discs. they take 3 parameters, the squares x and y value, and the color
 //of the players disc.
-function setDisc(x, y, player) {
+function drawDisc(x, y, player) {
     var square = document.getElementById(`position`+ '_'+ x.toString() +'_'+ y.toString());
     var ctx = square.getContext("2d");
     //draw a circle on the canvas
@@ -160,10 +121,4 @@ function setDisc(x, y, player) {
 
 
 
-
-
-setDisc(3, 3, playerBlack);
-setDisc(4, 4, playerBlack);
-setDisc(3, 4, currentPlayer);
-setDisc(4, 3, currentPlayer);
 
