@@ -51,19 +51,8 @@ function makeSquare(x, y) {
     
     //giving the square an event handler and calling the drawDisc function with the 
     //coresponding x and y values of the chosen squares ID
-    square.setAttribute('onclick', 'drawDisc('+x+', '+y+', currentPlayer)')
-
+    square.setAttribute('onclick', 'placeDisc('+x+', '+y+', currentPlayer)');
 }
-
-
-function centerBoard() {
-    var boardWidth = (squareSize * size) + 'px';
-    var centerString = "calc((100vw - "+ boardWidth +")/2)";
-    
-    board.style.left = centerString;
-    board.style.right = centerString;
-}
-
 
 //2 dimensional for loop creating a board size of choice by the user
 function drawBoard(size) {
@@ -81,21 +70,31 @@ function drawBoard(size) {
 
 //Function to create the discs. they take 3 parameters, the squares x and y value, and the color
 //of the players disc.
+//Idea for creating discs on canvas and code came from w3schools article: 
+// https://www.w3schools.com/tags/canvas_arc.asp
 function drawDisc(x, y, player) {
     var square = document.getElementById(`position`+ '_'+ x.toString() +'_'+ y.toString());
     var ctx = square.getContext("2d");
     //draw a circle on the canvas
     ctx.beginPath();
-    ctx.arc(50,50,45,0*Math.PI,2*Math.PI);
-        
-        if (player == playerWhite) { //decide which color to draw depending on players team
+    ctx.arc(50,50,45,0*Math.PI,2*Math.PI); 
+        if (player == 0) {
+            return;
+        } else if (player == playerWhite) { //decide which color to draw depending on players team
             ctx.fillStyle = "#fff";
-        } else {
+        } else if(player == playerBlack) {
             ctx.fillStyle ="000";
         }
         ctx.fill();
     }
 
+function centerBoard() {
+    var boardWidth = (squareSize * size) + 'px';
+    var centerString = "calc((100vw - "+ boardWidth +")/2)";
+    
+    board.style.left = centerString;
+    board.style.right = centerString;
+}
 
 
 
