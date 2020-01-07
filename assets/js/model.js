@@ -7,6 +7,8 @@ var currentPlayer = playerBlack;
 var menuOpen = false;
 var boardValue = new Array(size);
 
+var whiteScore = 0;
+var blackScore = 0;
 
 
 /* loops to create a 2d array which will keep the size of the board and
@@ -16,14 +18,14 @@ var boardValue = new Array(size);
 function buildBoardArray(boardSize) {
     boardValue = new Array(boardSize);
     
-    for(i = 0; i < boardSize; i++) {
-        boardValue[i] = new Array(boardSize);
+    for(x = 0; x < boardSize; x++) {
+        boardValue[x] = new Array(boardSize);
     }
     
     //here the array is filled with the default values of an empty board
-    for(i = 0; i < boardSize; i++) {
-        for(j = 0; j < boardSize; j++ ) {
-            boardValue[i][j] = 0;
+    for(x = 0; x < boardSize; x++) {
+        for(y = 0; y < boardSize; y++ ) {
+            boardValue[x][y] = 0;
         }
     }
 }
@@ -44,9 +46,42 @@ var directionData = [
 //Function to assign the position of the players disc into the boardValue array
 function placeDiscData(x, y, player) {
     boardValue[x][y] = player;
+    scoreCounter();
 }
 
 
 function getDiscValue(x, y) {
     return boardValue[x][y];
+}
+
+
+
+function scoreCounter() {
+    whiteScore = 0;
+    blackScore = 0;
+    var player;
+    
+    for(x = 0; x < size; x++) {
+        for(y = 0; y < size; y++) {
+            player = boardValue[x][y];
+            
+            if (player == playerWhite) {
+                whiteScore++
+            } else if (player == playerBlack) {
+                blackScore++
+            }
+        }
+    }
+}
+
+function getScoreWhite() {
+    return whiteScore;
+}
+
+function getScoreBlack() {
+    return blackScore;
+}
+
+function getCurrentPlayer() {
+    return currentPlayer;
 }

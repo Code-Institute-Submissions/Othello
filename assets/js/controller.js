@@ -34,16 +34,24 @@ function startGame() {
 //Goes through every position of the board array and send each result up to view.
 //drawBoard does this with the x, y and player values. x and y tells the position, and
 //the player value which is either 0, 1, or 2 draws which disc if any into this position. 
-function copyDiscValueToView() {
+function copyStatusValueToView() {
     var player;
     
     for(x = 0; x < size; x++) {
         for(y = 0; y < size; y++) {
             player = getDiscValue(x, y);
             drawDisc(x, y, player);
-            
         }
     }
+    
+    //get scores from model and send to view
+    var b = getScoreBlack();
+    var w = getScoreWhite();
+    viewScore(w, b);
+    
+    //get current player and send to view
+    var c = getCurrentPlayer();
+    viewCurrentPlayer(c);
 }
 
 //function to draw the first four discs of the board
@@ -59,12 +67,13 @@ function initDiscs(size) {
 
 function placeDisc(x, y, player) {
     placeDiscData(x, y, player);
-    copyDiscValueToView();
+
     if(currentPlayer == playerBlack) {
         currentPlayer = playerWhite;
     } else {
         currentPlayer = playerBlack;
     }
+    copyStatusValueToView();
 } 
 
 
@@ -77,7 +86,7 @@ function init() {
     drawBoard(size);
     buildBoardArray(size);
     initDiscs(size)
-    copyDiscValueToView();
+    copyStatusValueToView();
     closeMenu();
 }
 

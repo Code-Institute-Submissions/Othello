@@ -49,7 +49,7 @@ function makeSquare(x, y) {
     square.width = 100; 
     square.height = 100;
     
-    //giving the square an event handler and calling the drawDisc function with the 
+    //giving the square an event handler and calling the placeDisc function with the 
     //coresponding x and y values of the chosen squares ID
     square.setAttribute('onclick', 'placeDisc('+x+', '+y+', currentPlayer)');
 }
@@ -94,6 +94,21 @@ function centerBoard() {
     
     board.style.left = centerString;
     board.style.right = centerString;
+}
+
+function viewScore(white, black) {
+    console.log(white, black);
+    
+    document.getElementById('white-score').innerHTML = white;
+    document.getElementById('black-score').innerHTML = black;
+}
+
+function viewCurrentPlayer(currentP) {
+    if (currentP == 1) {
+        document.getElementById('current-player').innerHTML = "White's Turn";
+    } else {
+    document.getElementById('current-player').innerHTML = "Black's Turn";
+    }
 }
 
 

@@ -324,7 +324,7 @@ background-color :#efdfbb;
         border-radius: .3em 3em 3em .3em;
     }
     
-    #turn_counter {
+    #current-player {
         margin: auto;
         margin-top: 2em;
         color: #fff;
