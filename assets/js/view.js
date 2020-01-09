@@ -1,18 +1,18 @@
 
 ////// Media Queries ////////
 
-const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
-if (mqMediumMobile.matches && size >= 8) {
-    squareSize = 38;
-    centerBoard();
-} else if (mqMediumMobile.matches) {
-    squareSize = 45;
-    centerBoard();
-} else {
-    squareSize = 55;
+function setSquareSizeMQ () {
+    const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
+    if (mqMediumMobile.matches && size >= 8) {
+        squareSize = 38;
+        centerBoard();
+    } else if (mqMediumMobile.matches) {
+        squareSize = 45;
+        centerBoard();
+    } else {
+        squareSize = 55;
+    }
 }
-
-
 
 //toggle nav bar. checks of the navbar is closed or open with a boolean statement.
 // runs a for loop to give the all 3 of the menu containers the appropriate width. 
@@ -39,15 +39,18 @@ function makeSquare(x, y) {
     square.setAttribute('id', `position`+ '_'+ x.toString() +'_'+ y.toString());
     board.appendChild(square);
     
+    //Changing the default size of the canvas
+    square.width = 100; 
+    square.height = 100;
+    
+    setSquareSizeMQ();
+    
     //styling attributes on squares
     square.style.left = (x * squareSize) + 'px';
     square.style.top = (y * squareSize) + 'px';
     square.style.height = squareSize + 'px';
     square.style.width = squareSize + 'px';
     
-    //Changing the default size of the canvas
-    square.width = 100; 
-    square.height = 100;
     
     //giving the square an event handler and calling the placeDisc function with the 
     //coresponding x and y values of the chosen squares ID
@@ -98,23 +101,24 @@ function centerBoard() {
 
 function viewScore(white, black) {
     console.log(white, black);
+    //elements for desktop view
+    document.getElementById('white-score-desktop').innerHTML = white;
+    document.getElementById('black-score-desktop').innerHTML = black;
     
-    document.getElementById('white-score').innerHTML = white;
-    document.getElementById('black-score').innerHTML = black;
+    //elements for mobile view
+    document.getElementById('white-score-mobile').innerHTML = white;
+    document.getElementById('black-score-mobile').innerHTML = black;
 }
 
 function viewCurrentPlayer(currentP) {
     if (currentP == 1) {
         document.getElementById('current-player').innerHTML = "White's Turn";
+        document.getElementById('current-player-mobile').innerHTML = "White's Turn";
     } else {
     document.getElementById('current-player').innerHTML = "Black's Turn";
+    document.getElementById('current-player-mobile').innerHTML = "Black's Turn";
     }
 }
-
-
-
-
-
 
 
 

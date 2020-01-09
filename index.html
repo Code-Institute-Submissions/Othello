@@ -53,9 +53,9 @@
         <div class="col-lg-8 offset-lg-2 col-md-12 board-section">
             <div class="row no-gutters board-container">
                 <div class="d-none d-lg-block col-lg-2">
-                    <div class="black-scoreboard">
-                        <div class="circle white-circle"></div>
-                        <p id="black-score" class="p-text"></p>
+                    <div class="white-scoreboard">
+                        <div class="circle black-circle"></div>
+                        <p id="black-score-desktop" class="p-text"></p>
                     </div>
                 </div>
                 
@@ -64,9 +64,9 @@
                 </div>
                 
                 <div class="d-none d-lg-block col-lg-2">
-                    <div class="white-scoreboard">
-                        <div class="circle black-circle"></div>
-                        <p id="white-score" class="p-text"></p>
+                    <div class="black-scoreboard">
+                        <div class="circle white-circle"></div>
+                        <p id="white-score-desktop" class="p-text"></p>
                     </div>
                 </div>
                 <p id="current-player" class="d-none d-lg-block">Your Turn</p>
@@ -79,7 +79,20 @@
         <div class="row score-board-row d-lg-none">
             <div class="col-md-8 offset-md-2">
                 <div class="score-board">
-                    
+                    <div class="row no-gutters">
+                        <div class="col-3 white-scoreb-mw">
+                            <div class="circle black-circle"></div>
+                            <p id="black-score-mobile" class="p-text">11</p>
+                        </div>
+                        <div class="col-6 m-auto">
+                            <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
+                        </div>
+                        <div class="col-3 black-scoreb-mw">
+                            <div class="circle white-circle"></div>
+                            <p id="white-score-mobile" class="p-text">11</p>
+                        </div>
+                    </div>
+                
                 </div>
             </div>
         </div>

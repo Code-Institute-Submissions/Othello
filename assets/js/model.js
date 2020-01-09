@@ -44,9 +44,17 @@ var directionData = [
 ];
 
 //Function to assign the position of the players disc into the boardValue array
-function placeDiscData(x, y, player) {
+function placeDiscData(x, y, player, useRules = true) {
+    if(useRules) {
+    
+    if (rules()) {
+        
+    }
+    
+    } else {
     boardValue[x][y] = player;
     scoreCounter();
+    }
 }
 
 
@@ -84,4 +92,13 @@ function getScoreBlack() {
 
 function getCurrentPlayer() {
     return currentPlayer;
+}
+
+//onClick, may i place a disc here? is it empty? 
+function rules (x, y, player) {
+    
+    if (boardValue[x][y] > 0) {
+        return false;
+    } 
+    return true;
 }

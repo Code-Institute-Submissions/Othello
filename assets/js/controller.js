@@ -58,10 +58,10 @@ function copyStatusValueToView() {
 function initDiscs(size) {
     var firstDisc = (size -2)/2; 
 
-    placeDiscData(firstDisc, firstDisc, playerWhite)
-    placeDiscData(firstDisc+1, firstDisc+1, playerWhite);
-    placeDiscData(firstDisc+1, firstDisc, playerBlack)
-    placeDiscData(firstDisc, firstDisc+1, playerBlack);
+    placeDiscData(firstDisc, firstDisc, playerWhite, false)
+    placeDiscData(firstDisc+1, firstDisc+1, playerWhite, false);
+    placeDiscData(firstDisc+1, firstDisc, playerBlack, false)
+    placeDiscData(firstDisc, firstDisc+1, playerBlack, false);
 }
 
 
@@ -79,9 +79,7 @@ function placeDisc(x, y, player) {
 
 
 
-
-
-    
+//called upon by startGame() and calls all of these when the start button is clicked
 function init() {
     drawBoard(size);
     buildBoardArray(size);

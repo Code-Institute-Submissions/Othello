@@ -211,14 +211,6 @@ h1 {
     padding-bottom: 2em;
 }
 
-.score-board {
-    position: relative;
-    width: 100%;
-    height: 10em;
-    background-color: black;
-    border-radius: .2em .2em 3em 3em;
-}
-
 .circle {
     height: 3em;
     width: 3em;
@@ -236,9 +228,51 @@ h1 {
     margin: 1em;
 }
 
-#black-score {
+#black-score-desktop,
+#black-score-mobile {
+    color: #212529;
+}
+
+#white-score-desktop,
+#white-score-mobile {
     color: #fdf5e6;
 }
+
+/* section for mobile view scoreboard */
+
+.score-board {
+    position: relative;
+    width: 100%;
+    height: 10em;
+    background-color: rgba(4,47,54, .2);
+    border-radius: .2em .2em 3em 3em;
+}
+
+.white-scoreb-mw { 
+    position: absolute;
+    background-color: #fdf5e6;
+    text-align: center;
+    height: 100%;
+    border-radius: 0 0 0 3em;
+}
+
+.black-scoreb-mw {
+    position: absolute;
+    right: 0;
+    background-color: #212529;
+    text-align: center;
+    height: 100%;
+    border-radius: 0 0 3em 0;
+}
+
+#current-player-mobile {
+    margin-top: auto;
+    color: #fdf5e6;
+    padding: 1em;
+}
+
+
+
 
 /************  Colors   *************/
 
