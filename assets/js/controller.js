@@ -52,6 +52,9 @@ function copyStatusValueToView() {
     //get current player and send to view
     var c = getCurrentPlayer();
     viewCurrentPlayer(c);
+    
+    
+    mTogglePlayer();
 }
 
 //function to draw the first four discs of the board
@@ -67,15 +70,9 @@ function initDiscs(size) {
 
 function placeDisc(x, y, player) {
     placeDiscData(x, y, player);
-
-    if(currentPlayer == playerBlack) {
-        currentPlayer = playerWhite;
-    } else {
-        currentPlayer = playerBlack;
-    }
     copyStatusValueToView();
+    
 } 
-
 
 
 

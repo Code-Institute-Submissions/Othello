@@ -17,14 +17,14 @@ var blackScore = 0;
    https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
 function buildBoardArray(boardSize) {
     boardValue = new Array(boardSize);
-    
-    for(x = 0; x < boardSize; x++) {
+
+    for (x = 0; x < boardSize; x++) {
         boardValue[x] = new Array(boardSize);
     }
-    
+
     //here the array is filled with the default values of an empty board
-    for(x = 0; x < boardSize; x++) {
-        for(y = 0; y < boardSize; y++ ) {
+    for (x = 0; x < boardSize; x++) {
+        for (y = 0; y < boardSize; y++) {
             boardValue[x][y] = 0;
         }
     }
@@ -45,17 +45,21 @@ var directionData = [
 
 //Function to assign the position of the players disc into the boardValue array
 function placeDiscData(x, y, player, useRules = true) {
-    if(useRules) {
-    
-    if (rules()) {
-        
+
+    if (useRules) {
+        if (rules(x, y, player)) {
+
+            boardValue[x][y] = player;
+            scoreCounter();
+        }
     }
-    
-    } else {
-    boardValue[x][y] = player;
-    scoreCounter();
+    else {
+        boardValue[x][y] = player;
+        scoreCounter();
+
     }
 }
+
 
 
 function getDiscValue(x, y) {
@@ -68,14 +72,15 @@ function scoreCounter() {
     whiteScore = 0;
     blackScore = 0;
     var player;
-    
-    for(x = 0; x < size; x++) {
-        for(y = 0; y < size; y++) {
+
+    for (x = 0; x < size; x++) {
+        for (y = 0; y < size; y++) {
             player = boardValue[x][y];
-            
+
             if (player == playerWhite) {
                 whiteScore++
-            } else if (player == playerBlack) {
+            }
+            else if (player == playerBlack) {
                 blackScore++
             }
         }
@@ -95,10 +100,69 @@ function getCurrentPlayer() {
 }
 
 //onClick, may i place a disc here? is it empty? 
-function rules (x, y, player) {
+function rules(x, y, player) {
+    var enemyPlayer;
+    var masterFlag = false;
     
+    if (player == playerWhite) {
+        enemyPlayer = playerBlack;
+    }
+    else {
+        enemyPlayer = playerWhite;
+    }
+
     if (boardValue[x][y] > 0) {
+        console.log("Cannot put where already placed");
         return false;
-    } 
-    return true;
+    }
+
+    for (i = 0; i < 8; i++) {
+        var xn = x;
+        var yn = y
+        
+        if (xn > 0 && xn < size) {
+            xn = xn + directionData[i][0];
+        } 
+        if (yn > 0 && yn < size) {
+            yn = yn + directionData[i][1];
+        }
+
+        do {
+
+            console.log(xn, yn, i);
+            
+            if ((boardValue[xn][yn] == player) || (boardValue[xn][yn] == 0)) {
+                break;
+            } else {
+                masterFlag = true;
+            }
+            xn = xn + directionData[i][0];
+            yn = yn + directionData[i][1];
+
+        } while ((xn >= 0 && xn < size) && (yn > 0 && yn <= size));
+
+    }
+
+
+
+
+    console.log("hejhopp");
+    return masterFlag;
+}
+
+
+
+
+
+
+
+
+
+function mTogglePlayer() {
+    if (currentPlayer == playerBlack) {
+        currentPlayer = playerWhite;
+    }
+    else {
+        currentPlayer = playerBlack;
+    }
 }
