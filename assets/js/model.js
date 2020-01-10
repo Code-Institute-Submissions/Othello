@@ -33,14 +33,14 @@ function buildBoardArray(boardSize) {
 // directionData holds the 8 different directions on the x and y axis you can flip 
 // new discs and the result you would get for flipping in that direction is stored in the 3rd value. 
 var directionData = [
-    [0, -1, 0],
-    [+1, -1, 0],
-    [+1, 0, 0],
-    [+1, -1, 0],
-    [0, -1, 0],
-    [-1, -1, 0],
-    [-1, 0, 0],
-    [-1, +1, 0]
+    [0, +1, 0], //N
+    [+1, +1, 0], //NE
+    [+1, 0, 0], //E
+    [+1, -1, 0], //SE
+    [0, -1, 0], //S
+    [-1, -1, 0], //SW
+    [-1, 0, 0], //W
+    [-1, +1, 0] // NW
 ];
 
 //Function to assign the position of the players disc into the boardValue array
@@ -130,8 +130,8 @@ function rules(x, y, player) {
 
         while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
 
-            console.log(xn, yn, i);
-            console.log(x, y, player);
+            console.log(xn, yn);
+            //console.log(x, y, player);
 
             if (boardValue[xn][yn] == 0) {
                 break;
@@ -160,9 +160,10 @@ function rules(x, y, player) {
                 xn = xn + directionData[i][0];
                 yn = yn + directionData[i][1];
 
-                if (boardValue[xn][yn] == 0) {
+                if (boardValue[xn][yn] == player) {
                     break;
                 }
+                
                 boardValue[xn][yn] = player;
             }
 

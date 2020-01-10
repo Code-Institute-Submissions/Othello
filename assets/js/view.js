@@ -78,6 +78,7 @@ function drawBoard(size) {
 function drawDisc(x, y, player) {
     var square = document.getElementById(`position`+ '_'+ x.toString() +'_'+ y.toString());
     var ctx = square.getContext("2d");
+    ctx.clearRect(0, 0, square.width, square.height); //clears the canvas before being draws upon
     //draw a circle on the canvas
     ctx.beginPath();
     ctx.arc(50,50,45,0*Math.PI,2*Math.PI); 
