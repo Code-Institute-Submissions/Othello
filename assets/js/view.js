@@ -86,7 +86,7 @@ function drawDisc(x, y, player) {
         } else if (player == playerWhite) { //decide which color to draw depending on players team
             ctx.fillStyle = "#fff";
         } else if(player == playerBlack) {
-            ctx.fillStyle ="000";
+            ctx.fillStyle ="#000";
         }
         ctx.fill();
     }

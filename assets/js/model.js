@@ -51,12 +51,12 @@ function placeDiscData(x, y, player, useRules = true) {
 
             boardValue[x][y] = player;
             scoreCounter();
+            mTogglePlayer();
         }
     }
     else {
         boardValue[x][y] = player;
         scoreCounter();
-
     }
 }
 
@@ -102,6 +102,8 @@ function getCurrentPlayer() {
 //onClick, may i place a disc here? is it empty? 
 function rules(x, y, player) {
     var enemyPlayer;
+    var canBePlaced = false;
+
     console.log(x, y, player);
 
     if (player == playerWhite) {
@@ -115,24 +117,17 @@ function rules(x, y, player) {
         console.log("Cannot put where already placed");
         return false;
     }
-    
-    var canBePlaced = false;
+
+
     for (var i = 0; i < 8; i++) {
         var xn = x;
         var yn = y;
-
-        /*
-        if (xn > 0 && xn < size) {
-            xn = xn + directionData[i][0];
-        }
-        if (yn > 0 && yn < size) {
-            yn = yn + directionData[i][1];
-        }
-        */
-        xn = xn + directionData[i][0];
-        yn = yn + directionData[i][1];
         var enemyHere = false;
         var success = false;
+
+        xn = xn + directionData[i][0];
+        yn = yn + directionData[i][1];
+
         while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
 
             console.log(xn, yn, i);
@@ -142,30 +137,37 @@ function rules(x, y, player) {
                 break;
             }
             if (boardValue[xn][yn] == currentPlayer) {
-                if(enemyHere) {
+                if (enemyHere) {
                     success = true;
-                } else {
+                }
+                else {
                     break;
                 }
             }
-            if(boardValue[xn][yn] == enemyPlayer) {
+            if (boardValue[xn][yn] == enemyPlayer) {
                 enemyHere = true;
             }
             xn = xn + directionData[i][0];
             yn = yn + directionData[i][1];
-
         }
-        
-        if(success) {
+        if (success) {
             canBePlaced = true;
             console.log("Can be PLaced");
+
+            xn = x;
+            yn = y;
+            while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
+                xn = xn + directionData[i][0];
+                yn = yn + directionData[i][1];
+
+                if (boardValue[xn][yn] == 0) {
+                    break;
+                }
+                boardValue[xn][yn] = player;
+            }
+
         }
-
-
-
     }
-
-
     console.log("hejhopp");
     return canBePlaced;
 }
