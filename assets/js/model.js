@@ -102,8 +102,8 @@ function getCurrentPlayer() {
 //onClick, may i place a disc here? is it empty? 
 function rules(x, y, player) {
     var enemyPlayer;
-    var masterFlag = false;
-    
+    console.log(x, y, player);
+
     if (player == playerWhite) {
         enemyPlayer = playerBlack;
     }
@@ -115,39 +115,59 @@ function rules(x, y, player) {
         console.log("Cannot put where already placed");
         return false;
     }
-
-    for (i = 0; i < 8; i++) {
+    
+    var canBePlaced = false;
+    for (var i = 0; i < 8; i++) {
         var xn = x;
-        var yn = y
-        
+        var yn = y;
+
+        /*
         if (xn > 0 && xn < size) {
             xn = xn + directionData[i][0];
-        } 
+        }
         if (yn > 0 && yn < size) {
             yn = yn + directionData[i][1];
         }
-
-        do {
+        */
+        xn = xn + directionData[i][0];
+        yn = yn + directionData[i][1];
+        var enemyHere = false;
+        var success = false;
+        while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
 
             console.log(xn, yn, i);
-            
-            if ((boardValue[xn][yn] == player) || (boardValue[xn][yn] == 0)) {
+            console.log(x, y, player);
+
+            if (boardValue[xn][yn] == 0) {
                 break;
-            } else {
-                masterFlag = true;
+            }
+            if (boardValue[xn][yn] == currentPlayer) {
+                if(enemyHere) {
+                    success = true;
+                } else {
+                    break;
+                }
+            }
+            if(boardValue[xn][yn] == enemyPlayer) {
+                enemyHere = true;
             }
             xn = xn + directionData[i][0];
             yn = yn + directionData[i][1];
 
-        } while ((xn >= 0 && xn < size) && (yn > 0 && yn <= size));
+        }
+        
+        if(success) {
+            canBePlaced = true;
+            console.log("Can be PLaced");
+        }
+
+
 
     }
 
 
-
-
     console.log("hejhopp");
-    return masterFlag;
+    return canBePlaced;
 }
 
 

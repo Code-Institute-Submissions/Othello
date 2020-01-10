@@ -100,7 +100,6 @@ function centerBoard() {
 }
 
 function viewScore(white, black) {
-    console.log(white, black);
     //elements for desktop view
     document.getElementById('white-score-desktop').innerHTML = white;
     document.getElementById('black-score-desktop').innerHTML = black;
