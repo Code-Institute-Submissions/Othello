@@ -104,8 +104,9 @@ h1 {
     border:1px solid #000;
     color: #000;
     background-color: #f5f5f5;
+    cursor: pointer;
 }
-.board-button a:hover, 
+.board-button:hover a, 
 .board-button-active a {
     color: #000;
 }
@@ -274,6 +275,14 @@ h1 {
 
 
 
+/************  Footer   *************/
+
+footer {
+    width: 100%;
+    background-color: red;
+    height: 10em;
+}
+
 
 /************  Colors   *************/
 
@@ -288,7 +297,6 @@ background-color :#efdfbb;
 .bg-clr-darkblue {
     background-color: rgb(4,47,54);
 }
-
 
 /************  Media Query   *************/
 
