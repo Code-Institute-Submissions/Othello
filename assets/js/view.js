@@ -1,14 +1,23 @@
 
 ////// Media Queries ////////
 
-function setSquareSizeMQ () {
+function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
-    if (mqMediumMobile.matches && size >= 8) {
+    if (mqMediumMobile.matches && size == 10) {
+        squareSize = 32;
+    } else if(mqMediumMobile.matches && size == 8) {
         squareSize = 38;
-        centerBoard();
     } else if (mqMediumMobile.matches) {
         squareSize = 45;
-        centerBoard();
+    } else {
+        setSquareSize();
+    }
+}
+
+
+function setSquareSize() {
+    if (size == 10) {
+        squareSize = 45;
     } else {
         squareSize = 55;
     }
@@ -44,6 +53,7 @@ function makeSquare(x, y) {
     square.height = 100;
     
     setSquareSizeMQ();
+    centerBoard();
     
     //styling attributes on squares
     square.style.left = (x * squareSize) + 'px';
@@ -94,7 +104,7 @@ function drawDisc(x, y, player) {
 
 function centerBoard() {
     var boardWidth = (squareSize * size) + 'px';
-    var centerString = "calc((100vw - "+ boardWidth +")/2)";
+    var centerString = "calc((100% - "+ boardWidth +")/2)";
     
     board.style.left = centerString;
     board.style.right = centerString;

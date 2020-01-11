@@ -13,13 +13,26 @@ function openMenu() {
 }
 
 function chooseSize(sizeBtn) { //function to select the size of the board
+    
+     var button = [
+         document.getElementById('button6x6'),
+         document.getElementById('button8x8'),
+         document.getElementById('button10x10')
+     ]
+     for(i = 0; i < button.length; i++) {
+        button[i].classList.remove('board-button-active');
+     }
+
 
     if(sizeBtn === 6) {
         size = 6;
+        button[0].classList.add('board-button-active');
     } else if(sizeBtn === 8) {
         size = 8;
+        button[1].classList.add('board-button-active');
     } else if(sizeBtn === 10) {
         size = 10;
+        button[2].classList.add('board-button-active');
     } else {
         size = 8;
     }
@@ -68,7 +81,28 @@ function initDiscs(size) {
 function placeDisc(x, y, player) {
     placeDiscData(x, y, player);
     copyStatusValueToView();
+    if(!isAnyMovesPossible(currentPlayer)){
+        console.log("Player cannot make a move, switch to oposing player.");
+        mTogglePlayer();
+        if(!isAnyMovesPossible(currentPlayer)) {
+            console.log("Game Over");
+        }
+    }
 } 
+
+function isAnyMovesPossible(player) {
+    var canPlay = false;
+    console.log("player"+player);
+    for(x = 0; x < size; x++) {
+        for(y = 0; y < size; y++) {
+            if (rules(x, y, player, false)) { //check if rules return the value true, if so moves can be made.
+                canPlay = true;
+                console.log("canPlay"+canPlay);
+            }
+        }
+    }
+    return canPlay; //if return false, no more moves can be made. Game Over. 
+}
 
 
 

@@ -95,20 +95,20 @@ h1 {
     font-size: 1.5em;
     padding: .3em .5em;
     margin: .2em;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    transition: .5s;
+    border: 1px solid;
+    transition: all .5s;
 }
 
-.board-button:hover {
-    color: #fff;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
-    border-top: 0px solid #fff;
-    border-bottom: 0px solid #fff;
-    background-color: rgb(4,47,54)
+.board-button:hover,
+.board-button-active {
+    border:1px solid #000;
+    color: #000;
+    background-color: #f5f5f5;
 }
-
+.board-button a:hover, 
+.board-button-active a {
+    color: #000;
+}
 .menu-icon {
     position: relative;
     float: right;
@@ -167,6 +167,7 @@ h1 {
 .rules-button {
     font-size: 1.5em;
     top: .2em;
+    right:1.4em;
 }
 
 /************  The Board   *************/
@@ -315,12 +316,12 @@ background-color :#efdfbb;
         width: 100%;
         z-index: -4
     }
-    
+    /*
     #board {
         left: 10%;
         right: 10%;
     }
-    
+    */
     #startNav {
         background-color: rgba(4,47,54, .9);
         color: #f5f5f5;

@@ -100,11 +100,11 @@ function getCurrentPlayer() {
 }
 
 //onClick, may i place a disc here? is it empty? 
-function rules(x, y, player) {
+function rules(x, y, player, turnDisc = true) {
     var enemyPlayer;
     var canBePlaced = false;
 
-    console.log(x, y, player);
+    //console.log(x, y, player);
 
     if (player == playerWhite) {
         enemyPlayer = playerBlack;
@@ -130,7 +130,7 @@ function rules(x, y, player) {
 
         while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
 
-            console.log(xn, yn);
+            //console.log(xn, yn);
             //console.log(x, y, player);
 
             if (boardValue[xn][yn] == 0) {
@@ -152,19 +152,20 @@ function rules(x, y, player) {
         }
         if (success) {
             canBePlaced = true;
-            console.log("Can be PLaced");
+            //console.log("Can be PLaced");
+            if (turnDisc) {
+                xn = x;
+                yn = y;
+                while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
+                    xn = xn + directionData[i][0];
+                    yn = yn + directionData[i][1];
 
-            xn = x;
-            yn = y;
-            while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
-                xn = xn + directionData[i][0];
-                yn = yn + directionData[i][1];
+                    if (boardValue[xn][yn] == player) {
+                        break;
+                    }
 
-                if (boardValue[xn][yn] == player) {
-                    break;
+                    boardValue[xn][yn] = player;
                 }
-                
-                boardValue[xn][yn] = player;
             }
 
         }
@@ -172,6 +173,7 @@ function rules(x, y, player) {
     console.log("hejhopp");
     return canBePlaced;
 }
+
 
 
 
