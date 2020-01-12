@@ -1,17 +1,6 @@
 
 ////// Section for the main navigation ////////
 
-//close the main navigation, hiding it by changing height 100% to 0 %         
-function closeMenu() {
-    document.getElementById('overlayID').style.height = "0%";
-    document.getElementById('startNav').style.display = "none";
-}
-
-function openMenu() {
-    document.getElementById('overlayID').style.height = "100%";
-    document.getElementById('startNav').style.display = "block";
-}
-
 function chooseSize(sizeBtn) { //function to select the size of the board
     
      var button = [
@@ -22,7 +11,6 @@ function chooseSize(sizeBtn) { //function to select the size of the board
      for(i = 0; i < button.length; i++) {
         button[i].classList.remove('board-button-active');
      }
-
 
     if(sizeBtn === 6) {
         size = 6;
@@ -39,6 +27,51 @@ function chooseSize(sizeBtn) { //function to select the size of the board
     drawBoard(size);
 }
 
+//close the main navigation, hiding it by changing height 100% to 0 %         
+function closeMenu() {
+    document.getElementById('overlay_startID').style.height = "0%";
+    document.getElementById('startNav').style.display = "none";
+}
+
+function openMenu() {
+    document.getElementById('overlay_startID').style.height = "100%";
+    document.getElementById('startNav').style.display = "block";
+    closeRules();
+}
+
+//toggle nav bar. checks of the navbar is closed or open with a boolean statement.
+// runs a for loop to give the all 3 of the menu containers the appropriate width. 
+function toggleNav() {
+    var menu = document.getElementsByClassName('menu-button-container');
+    var myWidth;
+    if(menuOpen) {
+        myWidth = "0%";
+        menuOpen = false;
+    } else {
+        myWidth = "50%";
+        menuOpen = true;
+    }
+    for(i = 0; i < 3; i++) {
+        menu[i].style.width = myWidth;
+    }
+}
+
+////// Section for the Rules Page ////////
+
+function openRules() {
+    var rulesOverlay = document.getElementById('overlay_rules');
+    rulesOverlay.style.height = "100%";
+    rulesOverlay.style.zIndex = 5;
+}
+
+function closeRules() {
+    var rulesOverlay = document.getElementById('overlay_rules');
+    rulesOverlay.style.height = "0%";
+    rulesOverlay.style.zIndex = -5;
+}
+
+
+
 function startGame() {
     init();
 } 
@@ -47,7 +80,7 @@ function startGame() {
 //Goes through every position of the board array and send each result up to view.
 //drawBoard does this with the x, y and player values. x and y tells the position, and
 //the player value which is either 0, 1, or 2 draws which disc if any into this position. 
-function copyStatusValueToView() {
+function copyBoardArrayToDrawBoard() {
     var player;
     
     for(x = 0; x < size; x++) {
@@ -80,7 +113,7 @@ function initDiscs(size) {
 
 function placeDisc(x, y, player) {
     placeDiscData(x, y, player);
-    copyStatusValueToView();
+    copyBoardArrayToDrawBoard();
     if(!isAnyMovesPossible(currentPlayer)){
         console.log("Player cannot make a move, switch to oposing player.");
         mTogglePlayer();
@@ -111,7 +144,7 @@ function init() {
     drawBoard(size);
     buildBoardArray(size);
     initDiscs(size)
-    copyStatusValueToView();
+    copyBoardArrayToDrawBoard();
     closeMenu();
 }
 

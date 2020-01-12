@@ -3,6 +3,19 @@
 
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
+    if (mqMediumMobile.matches) {
+        var startButton = document.getElementById('menu_start_btn');
+        var rulesButton = document.getElementById('menu_rules_btn');
+        
+        /* Continue with next, bug at the moment. one attribute takes away the previous
+        startButton.setAttribute("onclick", "openMenu()");
+        startButton.setAttribute("onclick", "toggleNav()");
+        rulesButton.setAttribute("onclick", "openRules()");
+        rulesButton.setAttribute("onclick", "toggleNav()");
+        */
+
+    }
+    
     if (mqMediumMobile.matches && size == 10) {
         squareSize = 32;
     } else if(mqMediumMobile.matches && size == 8) {
@@ -23,22 +36,6 @@ function setSquareSize() {
     }
 }
 
-//toggle nav bar. checks of the navbar is closed or open with a boolean statement.
-// runs a for loop to give the all 3 of the menu containers the appropriate width. 
-function toggleNav() {
-    var menu = document.getElementsByClassName('menu-button-container');
-    var myWidth;
-    if(menuOpen) {
-        myWidth = "0%";
-        menuOpen = false;
-    } else {
-        myWidth = "50%";
-        menuOpen = true;
-    }
-    for(i = 0; i < 3; i++) {
-        menu[i].style.width = myWidth;
-    }
-}
 
 //Creates the squares that will make up the board. Using canvas to be able 
 //to draw the discs on the board.

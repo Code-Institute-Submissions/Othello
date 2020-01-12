@@ -15,9 +15,10 @@
 
 <body>
     <header>
-        <div class="overlay" id="overlayID">
+        <!--    Landing page/start menu -->
+        <div class="overlay" id="overlay_startID">
             <div class="start-nav" id="startNav">
-                <a href="#" class="button" id="close-button" onclick="closeMenu()">&times;</a>
+                <a href="#" class="button close-btn" id="close-button" onclick="closeMenu()">&times;</a>
                 <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
                 <p class="p-text">Pick a board size:</p>
                 <ul class="size-button-list">
@@ -36,13 +37,15 @@
                 </a>
             </div>
         </div>
+
+        <!--    Main Navigation Bar -->
         <nav class="main-nav">
             <span class="othello-logo">OTHELLO</span>
             <span class="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></span>
             <div class="menu-button-container bg-clr-navajo">
-                <span class="button menu-button uppercase" onclick="openMenu()">Start</span>
+                <span id="menu_start_btn" class="button menu-button uppercase" onclick="openMenu()">Start</span>
             </div>
-            <div class="menu-button-container bg-clr-dutch">
+            <div id="menu_rules_btn" class="menu-button-container bg-clr-dutch" onclick="openRules()">
                 <a href="#" class="button menu-button rules-button uppercase">Rules</a>
             </div>
             <div class="menu-button-container">
@@ -50,58 +53,77 @@
             </div>
         </nav>
     </header>
-
-    <div class="row no-gutters background-image">
-        <div class="col-lg-8 offset-lg-2 col-md-12 board-section">
-            <div class="row no-gutters board-container">
-                <div class="d-none d-lg-block col-lg-2">
-                    <div class="white-scoreboard">
-                        <div class="circle black-circle"></div>
-                        <p id="black-score-desktop" class="p-text"></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-8 col-md-12 board-col">
-                    <div id="board"></div>
-                </div>
-
-                <div class="d-none d-lg-block col-lg-2">
-                    <div class="black-scoreboard">
-                        <div class="circle white-circle"></div>
-                        <p id="white-score-desktop" class="p-text"></p>
-                    </div>
-                </div>
-                <p id="current-player" class="d-none d-lg-block">Your Turn</p>
+    
+    <!--    Rules Overlay Section   -->
+    <section class="rules-section">
+        <div class="overlay" id="overlay_rules">
+            <div class="rules-page bg-clr-darkblue">
+                <a href="#" class="button close-btn" id="rules-button" onclick="closeRules()">&times;</a>
+                <p>
+                    
+                </p>
+                
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container-fluid">
-        <!--<div class="container-fluid container-score-board">-->
-        <div class="row score-board-row d-lg-none">
-            <div class="col-md-8 offset-md-2">
-                <div class="score-board">
-                    <div class="row no-gutters">
-                        <div class="col-3 white-scoreb-mw">
+    <!--    The Othello board, Score board and which players turn section    -->
+    <!-- The scoreboards in this section is only visible on larger displays -->
+    <section>
+        <div class="row no-gutters background-image">
+            <div class="col-lg-8 offset-lg-2 col-md-12 board-section">
+                <div class="row no-gutters board-container">
+                    <div class="d-none d-lg-block col-lg-2">
+                        <div class="white-scoreboard">
                             <div class="circle black-circle"></div>
-                            <p id="black-score-mobile" class="p-text">11</p>
-                        </div>
-                        <div class="col-6 m-auto">
-                            <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
-                        </div>
-                        <div class="col-3 black-scoreb-mw">
-                            <div class="circle white-circle"></div>
-                            <p id="white-score-mobile" class="p-text">11</p>
+                            <p id="black-score-desktop" class="p-text"></p>
                         </div>
                     </div>
 
+                    <div class="col-lg-8 col-md-12 board-col">
+                        <div id="board"></div>
+                    </div>
+
+                    <div class="d-none d-lg-block col-lg-2">
+                        <div class="black-scoreboard">
+                            <div class="circle white-circle"></div>
+                            <p id="white-score-desktop" class="p-text"></p>
+                        </div>
+                    </div>
+                    <p id="current-player" class="d-none d-lg-block">Your Turn</p>
                 </div>
             </div>
         </div>
-        <!--</div>-->
-    </div>
-    <footer class="bg-clr-darkblue">
         
+        <!--    These scoreboards is only visible on smaller screens    -->
+        <div class="container-fluid">
+            <!--<div class="container-fluid container-score-board">-->
+            <div class="row score-board-row d-lg-none">
+                <div class="col-md-8 offset-md-2">
+                    <div class="score-board">
+                        <div class="row no-gutters">
+                            <div class="col-3 white-scoreb-mw">
+                                <div class="circle black-circle"></div>
+                                <p id="black-score-mobile" class="p-text">11</p>
+                            </div>
+                            <div class="col-6 m-auto">
+                                <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
+                            </div>
+                            <div class="col-3 black-scoreb-mw">
+                                <div class="circle white-circle"></div>
+                                <p id="white-score-mobile" class="p-text">11</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </section>
+
+    <footer class="bg-clr-darkblue">
+
     </footer>
 
 
@@ -111,6 +133,9 @@
     <script type="text/javascript" src="assets/js/view.js"></script>
     <script type="text/javascript" src="assets/js/model.js"></script>
     <script type="text/javascript" src="assets/js/controller.js"></script>
+    <script>
+        drawBoard(8, 8);
+    </script>
 
 </body>
 

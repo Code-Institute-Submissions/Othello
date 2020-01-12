@@ -5,7 +5,7 @@ const playerWhite = 1;
 const playerBlack = 2;
 var currentPlayer = playerBlack;
 var menuOpen = false;
-var boardValue = new Array(size);
+var boardArray = new Array(size);
 
 var whiteScore = 0;
 var blackScore = 0;
@@ -16,16 +16,16 @@ var blackScore = 0;
    code  written by the help of this article from geeksforgeeks.com :
    https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
 function buildBoardArray(boardSize) {
-    boardValue = new Array(boardSize);
+    boardArray = new Array(boardSize);
 
     for (x = 0; x < boardSize; x++) {
-        boardValue[x] = new Array(boardSize);
+        boardArray[x] = new Array(boardSize);
     }
 
     //here the array is filled with the default values of an empty board
     for (x = 0; x < boardSize; x++) {
         for (y = 0; y < boardSize; y++) {
-            boardValue[x][y] = 0;
+            boardArray[x][y] = 0;
         }
     }
 }
@@ -43,19 +43,19 @@ var directionData = [
     [-1, +1, 0] // NW
 ];
 
-//Function to assign the position of the players disc into the boardValue array
+//Function to assign the position of the players disc into the boardArray array
 function placeDiscData(x, y, player, useRules = true) {
 
     if (useRules) {
         if (rules(x, y, player)) {
 
-            boardValue[x][y] = player;
+            boardArray[x][y] = player;
             scoreCounter();
             mTogglePlayer();
         }
     }
     else {
-        boardValue[x][y] = player;
+        boardArray[x][y] = player;
         scoreCounter();
     }
 }
@@ -63,7 +63,7 @@ function placeDiscData(x, y, player, useRules = true) {
 
 
 function getDiscValue(x, y) {
-    return boardValue[x][y];
+    return boardArray[x][y];
 }
 
 
@@ -75,7 +75,7 @@ function scoreCounter() {
 
     for (x = 0; x < size; x++) {
         for (y = 0; y < size; y++) {
-            player = boardValue[x][y];
+            player = boardArray[x][y];
 
             if (player == playerWhite) {
                 whiteScore++
@@ -113,7 +113,7 @@ function rules(x, y, player, turnDisc = true) {
         enemyPlayer = playerWhite;
     }
 
-    if (boardValue[x][y] > 0) {
+    if (boardArray[x][y] > 0) {
         console.log("Cannot put where already placed");
         return false;
     }
@@ -133,10 +133,10 @@ function rules(x, y, player, turnDisc = true) {
             //console.log(xn, yn);
             //console.log(x, y, player);
 
-            if (boardValue[xn][yn] == 0) {
+            if (boardArray[xn][yn] == 0) {
                 break;
             }
-            if (boardValue[xn][yn] == currentPlayer) {
+            if (boardArray[xn][yn] == currentPlayer) {
                 if (enemyHere) {
                     success = true;
                 }
@@ -144,7 +144,7 @@ function rules(x, y, player, turnDisc = true) {
                     break;
                 }
             }
-            if (boardValue[xn][yn] == enemyPlayer) {
+            if (boardArray[xn][yn] == enemyPlayer) {
                 enemyHere = true;
             }
             xn = xn + directionData[i][0];
@@ -160,11 +160,11 @@ function rules(x, y, player, turnDisc = true) {
                     xn = xn + directionData[i][0];
                     yn = yn + directionData[i][1];
 
-                    if (boardValue[xn][yn] == player) {
+                    if (boardArray[xn][yn] == player) {
                         break;
                     }
 
-                    boardValue[xn][yn] = player;
+                    boardArray[xn][yn] = player;
                 }
             }
 
