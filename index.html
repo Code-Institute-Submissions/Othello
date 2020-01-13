@@ -53,18 +53,56 @@
             </div>
         </nav>
     </header>
-    
+
     <!--    Rules Overlay Section   -->
-    <section class="rules-section">
-        <div class="overlay" id="overlay_rules">
-            <div class="rules-page bg-clr-darkblue">
-                <a href="#" class="button close-btn" id="rules-button" onclick="closeRules()">&times;</a>
-                <p>
-                    
-                </p>
-                
+
+    <section class="overlay-rules" id="overlay_rules">
+        <div class="row no-gutters">
+            <div class="col-lg-6 offset-lg-3 col-md-12">
+                <div class="rules-page bg-clr-darkblue" id="rules_page">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <a href="#" class="button close-btn" id="rules-button" onclick="closeRules()">&times;</a>
+                            <div class="rules-header">
+                                <h2 class="">Rules of Othello</h2>
+                            </div>
+                                <h3>Goal of the Game</h3>
+                                <p class="rules-text">The goal is to have the majority of discs of your colour at the end of the game.</p>
+                                </br>
+                            <h3>Move</h3>
+                                <p class="rules-text">A move is made to outflank your opponent's disc or discs, followed by flipping the outflanked discs to your colour. What it means to outflank is to place a disc so that your opponent's row(s) of disc(s) is bordered by discs
+                                    of your colour at each end.</p>
+                                <img class="rules-img" src="assets/images/start.png" alt="">
+                                <img class="rules-img" src="assets/images/move-2.png" alt="">
+                                <img class="rules-img" src="assets/images/move2-result.png" alt="">
+                                </br>
+                            <h2>Game Rules</h2>
+                                <ol>
+                                    <li class="rules-text-li">1. Black moves first</li>
+                                    <li class="rules-text-li">2. If you cannot outflank at least one disc of your opponent, your turn is
+                                        forfeited and your opponent moves instead. However you can not pass your turn if 
+                                        you have a move availible to you.</li>
+                                    <li class="rules-text-li">3. Player can not skip over their own disc to outflank the opponent.
+                                        The only discs that is legal to turn is the discs between your placed disc and the first of your own in that row.</li>
+                                    <li class="rules-text-li">4. Turning discs may only be a direct result of a move that outflanks those discs.
+                                        Discs that appear to be outflanked but were not from the most recent move stays the way they are.
+                                        See picture below as an example:</li>
+                                        <img class="rules-img" src="assets/images/many-directions.png" alt="">
+                                    <li class="rules-text-li">5. Once a disc is placed on the board, it can never move to another square throughout the game</li>
+                                    <li class="rules-text-li">6. When neither player can no longer make a move, the game is over. 
+                                        The player with the most discs win</li>
+                                </ol>
+                            </br>
+                            <p class="p-text">Example of how one move can turn discs in different directions:</p>
+                            <img class="rules-img" src="assets/images/many-directions.png" alt="">
+                            <img class="rules-img" src="assets/images/directions-result.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
     </section>
 
     <!--    The Othello board, Score board and which players turn section    -->
@@ -94,7 +132,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--    These scoreboards is only visible on smaller screens    -->
         <div class="container-fluid">
             <!--<div class="container-fluid container-score-board">-->

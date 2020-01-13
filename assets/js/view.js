@@ -4,16 +4,11 @@
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
     if (mqMediumMobile.matches) {
+        //If the hamburger menu is availible it will toggle so it closes when a page is selected
         var startButton = document.getElementById('menu_start_btn');
         var rulesButton = document.getElementById('menu_rules_btn');
-        
-        /* Continue with next, bug at the moment. one attribute takes away the previous
-        startButton.setAttribute("onclick", "openMenu()");
-        startButton.setAttribute("onclick", "toggleNav()");
-        rulesButton.setAttribute("onclick", "openRules()");
-        rulesButton.setAttribute("onclick", "toggleNav()");
-        */
-
+        startButton.setAttribute("onclick", "openMenu(); toggleNav()");
+        rulesButton.setAttribute("onclick", "openRules(); toggleNav();");
     }
     
     if (mqMediumMobile.matches && size == 10) {

@@ -59,15 +59,22 @@ function toggleNav() {
 ////// Section for the Rules Page ////////
 
 function openRules() {
-    var rulesOverlay = document.getElementById('overlay_rules');
-    rulesOverlay.style.height = "100%";
-    rulesOverlay.style.zIndex = 5;
+    var rulesPage = document.getElementById('rules_page');
+    document.getElementById('overlay_rules').style.height = "100%";
+    rulesPage.style.display = "block";
+    rulesPage.style.zIndex = "5";
+    
+    /*rulesOverlay.style.zIndex = 5;*/
+
+
 }
 
 function closeRules() {
-    var rulesOverlay = document.getElementById('overlay_rules');
-    rulesOverlay.style.height = "0%";
-    rulesOverlay.style.zIndex = -5;
+    var rulesPage = document.getElementById('rules_page');
+    document.getElementById('overlay_rules').style.height = "0%";
+     rulesPage.style.display = "none";
+    rulesPage.style.zIndex = "-5";
+
 }
 
 
@@ -147,6 +154,7 @@ function init() {
     copyBoardArrayToDrawBoard();
     closeMenu();
 }
+
 
 
 
