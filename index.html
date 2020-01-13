@@ -162,8 +162,8 @@
         </div>
     </section>
     
-
-    <div class="pop-up-window">
+    <!-- Pop Up window which displays when game is over -->
+    <div class="pop-up-window" id="game_over">
         <h2 class="pop-up-header uppercase">Game over!</h2>
         <div class="row">
             <div class="col-6">
@@ -179,9 +179,19 @@
                 </p>
             </div>
         </div>
-        <p>Hope you enjoyed the game!</p>
-        <span class="button board-button">Continue</span>
-                    
+        <p class="final-message">Hope you enjoyed the game!</p>
+        <span class="button board-button" onclick="closeGameOverMessage()">Continue</span>
+    </div>
+    
+    <div class="pop-up-window" id="switch_player">
+        <h2 class="pop-up-header uppercase">You can't move!</h2>
+        <div class="row">
+            <div class="col-6">
+            
+            </div>
+        </div>
+        <p class="final-message">Hope you enjoyed the game!</p>
+        <span class="button board-button" onclick="closeGameOverMessage()">Continue</span>
     </div>
 
 

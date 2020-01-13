@@ -71,7 +71,10 @@ function closeRules() {
     document.getElementById('overlay_rules').style.height = "0%";
      rulesPage.style.display = "none";
     rulesPage.style.zIndex = "-5";
+}
 
+function closeGameOverMessage() {
+    document.getElementById('game_over').style.display = "none";
 }
 
 
@@ -123,6 +126,7 @@ function placeDisc(x, y, player) {
         mTogglePlayer();
         if(!isAnyMovesPossible(currentPlayer)) {
             console.log("Game Over");
+            gameOverMessage(getScoreBlack(), getScoreWhite());
         }
     }
 } 
@@ -132,7 +136,7 @@ function isAnyMovesPossible(player) {
     console.log("player"+player);
     for(x = 0; x < size; x++) {
         for(y = 0; y < size; y++) {
-            if (rules(x, y, player, false)) { //check if rules return the value true, if so moves can be made.
+            if (rules(x, y, player, false)) { //check if function rules return the value true, if so moves can be made.
                 canPlay = true;
                 console.log("canPlay"+canPlay);
             }

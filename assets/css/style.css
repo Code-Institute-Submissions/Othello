@@ -327,6 +327,7 @@ h1 {
 /************  Alert Boxes. Game-over, skip turn   *************/
 
 .pop-up-window {
+    display: none;
     position: fixed;
     width: 80vw;
     height: 25em;
@@ -340,6 +341,11 @@ h1 {
 
 .pop-up-header {
     font-size: 2.5em;
+    margin: 1em;
+}
+
+.final-message {
+    font-size: 1.5em;
     margin: 1em;
 }
 

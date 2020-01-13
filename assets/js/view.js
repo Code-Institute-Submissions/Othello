@@ -122,6 +122,18 @@ function viewCurrentPlayer(currentP) {
     }
 }
 
+////// Section for pop-up message ////////
+
+function gameOverMessage(scoreBlack, scoreWhite) {
+    var finalScoreBlack = document.getElementById('final_black_score');
+    var finalScoreWhite = document.getElementById('final_white_score');
+    var gameOverPopUp = document.getElementById('game_over');
+    
+    gameOverPopUp.style.display = "block";
+    finalScoreBlack.innerHTML = scoreBlack;
+    finalScoreWhite.innerHTML = scoreWhite;
+}
+
 
 
 
