@@ -64,9 +64,6 @@ function openRules() {
     rulesPage.style.display = "block";
     rulesPage.style.zIndex = "5";
     
-    /*rulesOverlay.style.zIndex = 5;*/
-
-
 }
 
 function closeRules() {

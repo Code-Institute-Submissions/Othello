@@ -324,6 +324,25 @@ h1 {
 }
 
 
+/************  Alert Boxes. Game-over, skip turn   *************/
+
+.pop-up-window {
+    position: fixed;
+    width: 80vw;
+    height: 25em;
+    margin-left: calc(50% - 40vw);
+    text-align: center;
+    background-color: #0bb15f;
+    top: 5em;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.pop-up-header {
+    font-size: 2.5em;
+    margin: 1em;
+}
+
 /************  Footer   *************/
 
 footer {
@@ -438,6 +457,11 @@ background-color :#efdfbb;
     
     .menu-icon {
     display: none;
+    }
+    
+    .pop-up-window {
+        width: 30em;
+        margin-left: calc(50% - 15em);
     }
 }
 
