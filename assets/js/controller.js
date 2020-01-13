@@ -75,6 +75,11 @@ function closeRules() {
 
 function closeGameOverMessage() {
     document.getElementById('game_over').style.display = "none";
+    openMenu();
+}
+
+function closePassTurnMessage() {
+    document.getElementById('switch_player').style.display = "none";
 }
 
 
@@ -121,15 +126,24 @@ function initDiscs(size) {
 function placeDisc(x, y, player) {
     placeDiscData(x, y, player);
     copyBoardArrayToDrawBoard();
-    if(!isAnyMovesPossible(currentPlayer)){
+    var isGameOver = false;
+    if(gameOver(size, getScoreBlack(), getScoreWhite())) {
+        isGameOver = true;
+        
+    } else if(!isAnyMovesPossible(currentPlayer) && !isGameOver) {
         console.log("Player cannot make a move, switch to oposing player.");
+        switchPlayerMessage();
         mTogglePlayer();
-        if(!isAnyMovesPossible(currentPlayer)) {
-            console.log("Game Over");
-            gameOverMessage(getScoreBlack(), getScoreWhite());
-        }
     }
 } 
+
+function gameOver(size, scoreBlack, scoreWhite) {
+    if((size * size) == scoreBlack + scoreWhite) {
+        gameOverMessage(getScoreBlack(), getScoreWhite());
+        return true;
+    } 
+    return false;
+}
 
 function isAnyMovesPossible(player) {
     var canPlay = false;

@@ -349,6 +349,15 @@ h1 {
     margin: 1em;
 }
 
+#switch_player {
+    background-color: #da4242;
+    
+}
+
+.pop-up-window .button {
+    color: black;
+}
+
 /************  Footer   *************/
 
 footer {

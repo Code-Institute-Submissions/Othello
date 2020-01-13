@@ -169,13 +169,13 @@
             <div class="col-6">
                 <p class="p-text">
                     White Scored:
-                    <span id="final_white_score">7</span>
+                    <span id="final_white_score"></span>
                 </p>
             </div>
             <div class="col-6">
                 <p class="p-text">
                     Black Scored: 
-                    <span id="final_black_score">11</span>
+                    <span id="final_black_score"></span>
                 </p>
             </div>
         </div>
@@ -186,12 +186,12 @@
     <div class="pop-up-window" id="switch_player">
         <h2 class="pop-up-header uppercase">You can't move!</h2>
         <div class="row">
-            <div class="col-6">
-            
+            <div class="col-12">
+                <p class="final-message">The other player will take over your turn.</p>
             </div>
         </div>
-        <p class="final-message">Hope you enjoyed the game!</p>
-        <span class="button board-button" onclick="closeGameOverMessage()">Continue</span>
+        
+        <span class="button board-button" onclick="closePassTurnMessage()">Continue</span>
     </div>
 
 

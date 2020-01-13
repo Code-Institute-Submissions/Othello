@@ -134,6 +134,10 @@ function gameOverMessage(scoreBlack, scoreWhite) {
     finalScoreWhite.innerHTML = scoreWhite;
 }
 
+function switchPlayerMessage() {
+    document.getElementById('switch_player').style.display = "block";
+}
+
 
 
 
