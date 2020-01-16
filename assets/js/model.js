@@ -6,13 +6,15 @@ const playerBlack = 2;
 var currentPlayer = playerBlack;
 var menuOpen = false;
 var boardArray = new Array(size);
-
+var couldPreviousPlayerMove = true;
 var whiteScore = 0;
 var blackScore = 0;
 
 
 /* loops to create a 2d array which will keep the size of the board and
-   the positioning of the discs. 
+   the positioning of the discs throughout the game. this array IS the board.
+   It will be updated by each move of a player and the board-drawing the player sees
+   will be based of this arrays values.
    code  written by the help of this article from geeksforgeeks.com :
    https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
 function buildBoardArray(boardSize) {
@@ -30,20 +32,10 @@ function buildBoardArray(boardSize) {
     }
 }
 
-// directionData holds the 8 different directions on the x and y axis you can flip 
-// new discs and the result you would get for flipping in that direction is stored in the 3rd value. 
-var directionData = [
-    [0, +1, 0], //N
-    [+1, +1, 0], //NE
-    [+1, 0, 0], //E
-    [+1, -1, 0], //SE
-    [0, -1, 0], //S
-    [-1, -1, 0], //SW
-    [-1, 0, 0], //W
-    [-1, +1, 0] // NW
-];
-
-//Function to assign the position of the players disc into the boardArray array
+/*  Function to assign the position of the players disc into the boardArray.
+    It checks if we should use the rules, which is by default true. 
+    then if rules return true (canBePlaced = true) the boardArray will update with new values,
+    The score counters will update and the current player will toggle*/
 function placeDiscData(x, y, player, useRules = true) {
 
     if (useRules) {
@@ -52,22 +44,25 @@ function placeDiscData(x, y, player, useRules = true) {
             boardArray[x][y] = player;
             scoreCounter();
             mTogglePlayer();
+            return true;
+        } else {
+            return false;
         }
     }
-    else {
+    else { //else is mainly for the first 4 initial discs. which will not use pass through the rules function. 
         boardArray[x][y] = player;
         scoreCounter();
+        return true;
     }
 }
 
-
-
-function getDiscValue(x, y) {
+//Returns each X and Y value of the boardArray to later be used to draw the board from
+function getboardArrayValue(x, y) {
     return boardArray[x][y];
 }
 
-
-
+// Goes through each position of the boardArray. if it get a match on either player the value for that
+// player will increse.
 function scoreCounter() {
     whiteScore = 0;
     blackScore = 0;
@@ -99,13 +94,28 @@ function getCurrentPlayer() {
     return currentPlayer;
 }
 
-//onClick, may i place a disc here? is it empty? 
+/* directionData holds the 8 different directions on the x and y axis you can flip discs when a
+   player makes a move. for each potential move, all 8 directions most be checked to see if there 
+   could be a match and in that case flip discs. 
+   3rd value is for the "computer" to log how many potential discs it could flip for making a particular move.
+*/
+var directionData = [
+    [0, +1, 0], //N
+    [+1, +1, 0], //NE
+    [+1, 0, 0], //E
+    [+1, -1, 0], //SE
+    [0, -1, 0], //S
+    [-1, -1, 0], //SW
+    [-1, 0, 0], //W
+    [-1, +1, 0] // NW
+];
+
+//Function for the rules and behaviour of the game.
 function rules(x, y, player, turnDisc = true) {
     var enemyPlayer;
     var canBePlaced = false;
 
-    //console.log(x, y, player);
-
+    //first if else statment determines which is the "enemyPlayer" depending on who the current player is
     if (player == playerWhite) {
         enemyPlayer = playerBlack;
     }
@@ -113,53 +123,57 @@ function rules(x, y, player, turnDisc = true) {
         enemyPlayer = playerWhite;
     }
 
-    if (boardArray[x][y] > 0) {
-        console.log("Cannot put where already placed");
-        return false;
+    if (boardArray[x][y] > 0) { //Checks if there is already a disc at the clicked position
+        return false;           //is so, return false. Disc cannot be placed here.
     }
 
-
+    //For-loop to check all 8 directions a move can flip discs.
+    //xn and yn is two values starting of at the clicked position, and then moves out
+    //the direction to look for a match.
     for (var i = 0; i < 8; i++) {
         var xn = x;
         var yn = y;
         var enemyHere = false;
         var success = false;
-
+        
+        //directionData holds the 8 directions in a 2 dimensional array. here we begin by moving one
+        //space in the picked direction before checking if it meets the rules conditions.
         xn = xn + directionData[i][0];
         yn = yn + directionData[i][1];
 
+        //These statments check if we are still within the size of the board. 
         while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
-
-            //console.log(xn, yn);
-            //console.log(x, y, player);
-
-            if (boardArray[xn][yn] == 0) {
-                break;
+            if (boardArray[xn][yn] == 0) { //if the space we are checking is empty,
+                break;                     //break, go back into the forloop and check next direction.
             }
-            if (boardArray[xn][yn] == currentPlayer) {
-                if (enemyHere) {
-                    success = true;
+            if (boardArray[xn][yn] == currentPlayer) {  
+                if (enemyHere) {     //if we hit a "friendly" discs we need to know if we've already met an enemydisc.
+                    success = true;  //if enemyHere = true, we can turn discs in this direction. 
                 }
-                else {
+                else { //otherwise, break. check next direction.
                     break;
                 }
             }
             if (boardArray[xn][yn] == enemyPlayer) {
                 enemyHere = true;
-            }
+            } //if we hit enemyPlayer we need to continue in this direction to see if we later hits a friendly.
+              //increase in this direction by one move to check this position next.
             xn = xn + directionData[i][0];
             yn = yn + directionData[i][1];
-        }
-        if (success) {
+        } //end of while-loop
+        
+        if (success) { //is success = true, we can turn discs by making this move.
             canBePlaced = true;
-            //console.log("Can be PLaced");
             if (turnDisc) {
-                xn = x;
+                // we start of again on the clicked position. this time the goal is to turn the discs in the 
+                // direction the rules have told us is possible.
+                xn = x; 
                 yn = y;
                 while ((xn >= 0 && xn < size) && (yn >= 0 && yn < size)) {
                     xn = xn + directionData[i][0];
                     yn = yn + directionData[i][1];
-
+                    
+                    //as soon as we hit our friendly disc on the otherside of this row, we stop.
                     if (boardArray[xn][yn] == player) {
                         break;
                     }
@@ -173,15 +187,6 @@ function rules(x, y, player, turnDisc = true) {
     console.log("hejhopp");
     return canBePlaced;
 }
-
-
-
-
-
-
-
-
-
 
 function mTogglePlayer() {
     if (currentPlayer == playerBlack) {

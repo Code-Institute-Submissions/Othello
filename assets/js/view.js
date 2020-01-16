@@ -1,6 +1,7 @@
 
 ////// Media Queries ////////
 
+//this media query is used for setting the board size and use of the collapse navbar
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
     if (mqMediumMobile.matches) {
@@ -22,25 +23,24 @@ function setSquareSizeMQ() {
     }
 }
 
-
-function setSquareSize() {
-    if (size == 10) {
+function setSquareSize() { //decides the size of each square depending on how large the player wants 
+    if (size == 10) {      //the board to be
         squareSize = 45;
     } else {
         squareSize = 55;
     }
 }
 
-
 //Creates the squares that will make up the board. Using canvas to be able 
-//to draw the discs on the board.
+//to draw the discs on the board. Giving each square an individual id with X and Y value
+//to determine it's position.  
 function makeSquare(x, y) {
     var square = document.createElement('canvas');
     square.setAttribute('class', 'squares');
     square.setAttribute('id', `position`+ '_'+ x.toString() +'_'+ y.toString());
     board.appendChild(square);
     
-    //Changing the default size of the canvas
+    //Changing the default size of the canvas to be able to draw circles (discs) on it later
     square.width = 100; 
     square.height = 100;
     
@@ -53,13 +53,13 @@ function makeSquare(x, y) {
     square.style.height = squareSize + 'px';
     square.style.width = squareSize + 'px';
     
-    
     //giving the square an event handler and calling the placeDisc function with the 
-    //coresponding x and y values of the chosen squares ID
+    //coresponding x and y values of the clicked square ID
     square.setAttribute('onclick', 'placeDisc('+x+', '+y+', currentPlayer)');
 }
 
-//2 dimensional for loop creating a board size of choice by the user
+//2 dimensional for loop drawing a board, size is choosed by the user.
+// ".board" is the div the board gets drawn in. first line clears it.
 function drawBoard(size) {
     board.innerHTML = "";
     for(x = 0; x < size; x++) {
@@ -73,7 +73,7 @@ function drawBoard(size) {
     }
 }
 
-//Function to create the discs. they take 3 parameters, the squares x and y value, and the color
+//Function to draw the discs. they take 3 parameters, the squares x and y value, and the color
 //of the players disc.
 //Idea for creating discs on canvas and code came from w3schools article: 
 // https://www.w3schools.com/tags/canvas_arc.asp
@@ -94,6 +94,7 @@ function drawDisc(x, y, player) {
         ctx.fill();
     }
 
+//Center the board solution. This centeres the board on different screen sizes.  
 function centerBoard() {
     var boardWidth = (squareSize * size) + 'px';
     var centerString = "calc((100% - "+ boardWidth +")/2)";
@@ -102,7 +103,7 @@ function centerBoard() {
     board.style.right = centerString;
 }
 
-function viewScore(white, black) {
+function displayScore(white, black) {
     //elements for desktop view
     document.getElementById('white-score-desktop').innerHTML = white;
     document.getElementById('black-score-desktop').innerHTML = black;
@@ -112,7 +113,7 @@ function viewScore(white, black) {
     document.getElementById('black-score-mobile').innerHTML = black;
 }
 
-function viewCurrentPlayer(currentP) {
+function displayCurrentPlayer(currentP) {
     if (currentP == 1) {
         document.getElementById('current-player').innerHTML = "White's Turn";
         document.getElementById('current-player-mobile').innerHTML = "White's Turn";
