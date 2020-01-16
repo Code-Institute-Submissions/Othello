@@ -43,7 +43,7 @@ function openMenu() {
     closeRules();
 }
 
-//toggle nav bar. checks of the navbar is closed or open with a boolean statement.
+//toggle nav bar. checks if the navbar is closed or open with a boolean statement.
 // runs a for loop to give the all 3 of the menu containers the appropriate width. 
 function toggleNav() {
     var menu = document.getElementsByClassName('menu-button-container');
@@ -60,7 +60,6 @@ function toggleNav() {
         menu[i].style.width = myWidth;
     }
 }
-
 
 //Similar functions as previous. open and closes a section on click from the user by
 // changing z-index, height, and display value.
@@ -95,8 +94,8 @@ function startGame() {
 
 
 //Goes through every position of the board array and send each result up to view.
-//drawBoard does this with the x, y and player values. x and y tells the position, and
-//the player value which is either 0, 1, or 2 draws which disc if any into this position. 
+//drawDisc does this with the x, y and player values. x and y tells the position, and
+//the player value which is either 0, 1, or 2. 
 function copyBoardArrayToDrawBoard() {
     var player;
 
@@ -138,7 +137,7 @@ function play(x, y, player) {
         //a disc could be placed. First thing to do before next move is to toggle player.
         mTogglePlayer(); 
         if (!isAnyMovesPossible(currentPlayer)) { //can this new player make any moves?
-            mTogglePlayer();                      //if not, toggle player.
+            mTogglePlayer();                      //if not, toggle player again.
             playerCouldMove = false;
             if (!isAnyMovesPossible(currentPlayer)) { //can any moves be made by this player instead?
                 isGameOver = true;                    //if not the game is over.
@@ -204,7 +203,7 @@ function isAnyMovesPossible(player) {
             }
         }
     }
-    return canPlay; //if return false, no more moves can be made. Game Over. 
+    return canPlay; //if return false, no moves can be made by this player. 
 }
 
 //called upon by startGame() and calls all of these when the start button is clicked

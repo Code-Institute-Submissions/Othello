@@ -48,7 +48,7 @@ function placeDisc(x, y, player, useRules = true) {
             return false;
         }
     }
-    else { //else is mainly for the first 4 initial discs. which will not use pass through the rules function. 
+    else { //else is for the first 4 initial discs. which will not use pass through the rules function. 
         boardArray[x][y] = player;
         scoreCounter();
         return true;
@@ -96,7 +96,7 @@ function getCurrentPlayer() {
 /* directionData holds the 8 different directions on the x and y axis you can flip discs when a
    player makes a move. for each potential move, all 8 directions most be checked to see if there 
    could be a match and in that case flip discs. 
-   3rd value is for the "computer" to log how many potential discs it could flip for making a particular move.
+   3rd value is for the "computer" to log how many potential discs it could flip for making a particular move.(to be implemented later)
 */
 var directionData = [
     [0, +1, 0], //N
@@ -176,7 +176,7 @@ function rules(x, y, player, turnDisc = true) {
                     if (boardArray[xn][yn] == player) {
                         break;
                     }
-
+                    //here the boardArray gets updated with the newly flipped disc value.
                     boardArray[xn][yn] = player;
                 }
             }

@@ -40,7 +40,7 @@ function makeSquare(x, y) {
     square.setAttribute('id', `position`+ '_'+ x.toString() +'_'+ y.toString());
     board.appendChild(square);
     
-    //Changing the default size of the canvas to be able to draw circles (discs) on it later
+    //setting the default size of the canvas to be able to draw circles (discs) on it later
     square.width = 100; 
     square.height = 100;
     
