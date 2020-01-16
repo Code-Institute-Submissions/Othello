@@ -119,42 +119,45 @@ function initDiscs(size) {
     var firstDisc = (size - 2) / 2;
 
     //false value here is to avoid the rules so the discs can be placed without meeting the demands of the rules function.
-    placeDiscData(firstDisc, firstDisc, playerWhite, false);
-    placeDiscData(firstDisc + 1, firstDisc + 1, playerWhite, false);
-    placeDiscData(firstDisc + 1, firstDisc, playerBlack, false)
-    placeDiscData(firstDisc, firstDisc + 1, playerBlack, false);
+    placeDisc(firstDisc, firstDisc, playerWhite, false);
+    placeDisc(firstDisc + 1, firstDisc + 1, playerWhite, false);
+    placeDisc(firstDisc + 1, firstDisc, playerBlack, false)
+    placeDisc(firstDisc, firstDisc + 1, playerBlack, false);
 }
 
-
-function placeDisc(x, y, player) {
+/*  play function controlls the flow of the game. it's the function that is being called upon by 
+    the click of a player.
+*/
+function play(x, y, player) {
     var isGameOver = false;
     var playerCouldMove = true;
-    if (placeDiscData(x, y, player)) { //checks if the picked position is availible
-
-        if (boardFull(size, getScoreBlack(), getScoreWhite())) {
+    if (placeDisc(x, y, player)) { //checks if the picked position is availible.
+        if (boardFull(size, getScoreBlack(), getScoreWhite())) { //if the board is full, the game is over.
             isGameOver = true;
         }
-        mTogglePlayer();
-        if (!isAnyMovesPossible(currentPlayer)) {
-            mTogglePlayer();
+        //a disc could be placed. First thing to do before next move is to toggle player.
+        mTogglePlayer(); 
+        if (!isAnyMovesPossible(currentPlayer)) { //can this new player make any moves?
+            mTogglePlayer();                      //if not, toggle player.
             playerCouldMove = false;
-            if (!isAnyMovesPossible(currentPlayer)) {
-                isGameOver = true;
+            if (!isAnyMovesPossible(currentPlayer)) { //can any moves be made by this player instead?
+                isGameOver = true;                    //if not the game is over.
             }
-            mTogglePlayer();
+            mTogglePlayer(); 
         }
 
-        if (isGameOver) {
+        if (isGameOver) { //If "isGameOver" is true, the message will be displayed
             gameOverMessage(getScoreBlack(), getScoreWhite());
         }
-        else if (!playerCouldMove) {
-            switchPlayerMessage();
-            mTogglePlayer();
+        else if (!playerCouldMove) { //if the player could not move but the next one can,
+            switchPlayerMessage();   //a message will be displayed, players turn will toggle,
+            mTogglePlayer();         //and the display of current player will be updated.
             displayCurrentPlayer();
         }
-
+        //lastly this new info in the board array will be displayed to the user.
         copyBoardArrayToDrawBoard();
-        /*
+        
+        /* //old function, containing a few bugs
             copyBoardArrayToDrawBoard(); //Draw the board based on the boardArray
 
             if (boardFull(size, getScoreBlack(), getScoreWhite())) {
@@ -183,6 +186,7 @@ function placeDisc(x, y, player) {
     }
 }
 
+//checks if every square on the board has a disc on it
 function boardFull(size, scoreBlack, scoreWhite) {
     if ((size * size) == scoreBlack + scoreWhite) {
         return true;
@@ -190,21 +194,18 @@ function boardFull(size, scoreBlack, scoreWhite) {
     return false;
 }
 
+// 
 function isAnyMovesPossible(player) {
     var canPlay = false;
-    console.log("player" + player);
     for (x = 0; x < size; x++) {
         for (y = 0; y < size; y++) {
             if (rules(x, y, player, false)) { //check if function rules return the value true, if so moves can be made.
                 canPlay = true;
-                console.log("canPlay" + canPlay);
             }
         }
     }
     return canPlay; //if return false, no more moves can be made. Game Over. 
 }
-
-
 
 //called upon by startGame() and calls all of these when the start button is clicked
 function init() {

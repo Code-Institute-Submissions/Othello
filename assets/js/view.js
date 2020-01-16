@@ -53,9 +53,9 @@ function makeSquare(x, y) {
     square.style.height = squareSize + 'px';
     square.style.width = squareSize + 'px';
     
-    //giving the square an event handler and calling the placeDisc function with the 
+    //giving the square an event handler and calling the play function with the 
     //coresponding x and y values of the clicked square ID
-    square.setAttribute('onclick', 'placeDisc('+x+', '+y+', currentPlayer)');
+    square.setAttribute('onclick', 'play('+x+', '+y+', currentPlayer)');
 }
 
 //2 dimensional for loop drawing a board, size is choosed by the user.

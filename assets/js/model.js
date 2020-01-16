@@ -35,15 +35,14 @@ function buildBoardArray(boardSize) {
 /*  Function to assign the position of the players disc into the boardArray.
     It checks if we should use the rules, which is by default true. 
     then if rules return true (canBePlaced = true) the boardArray will update with new values,
-    The score counters will update and the current player will toggle*/
-function placeDiscData(x, y, player, useRules = true) {
+    and the score counters will update. */
+function placeDisc(x, y, player, useRules = true) {
 
     if (useRules) {
         if (rules(x, y, player)) {
 
             boardArray[x][y] = player;
             scoreCounter();
-            mTogglePlayer();
             return true;
         } else {
             return false;
