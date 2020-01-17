@@ -48,7 +48,7 @@ function closeMenu() {
 
 function openMenu() {
     var startNav = document.getElementById('startNav');
-    startNav.style.height = "100%";
+    startNav.style.height = "25em";
     for(i = 0; i < startNav.children.length; i++) {
         startNav.children[i].style.display = "block";
     }
