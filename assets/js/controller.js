@@ -90,9 +90,13 @@ function closeRules() {
     rulesPage.style.zIndex = "-5";
 }
 
-function closeGameOverMessage() {
+function restartButton() {
     document.getElementById('game_over').style.display = "none";
     openMenu();
+}
+
+function closeGameOverMessage() {
+    document.getElementById('game_over').style.display = "none";
 }
 
 function closePassTurnMessage() {

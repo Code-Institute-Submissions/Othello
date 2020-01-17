@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <!-- Used this favicon generator for this code: https://www.websiteplanet.com/sv/webtools/favicon-generator/-->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <title>Othello</title>
 </head>
 
@@ -17,33 +20,36 @@
     <header>
         <!--    Landing page/start menu -->
         <!--<div class="overlay" id="overlay_startID">-->
-            <div class="start-nav" id="startNav">
-                <a href="#" class="button close-btn" id="close-button" onclick="closeMenu()">&times;</a>
-                <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
-                <p class="p-text">Pick a board size:</p>
-                <ul class="size-button-list">
-                    <li class="board-button" id="button6x6" onclick="chooseSize(6)">
-                        <a href="#" class="button">6x6</a>
-                    </li>
-                    <li class="board-button" id="button8x8" onclick="chooseSize(8)">
-                        <a href="#" class="button">8x8</a>
-                    </li>
-                    <li class="board-button" id="button10x10" onclick="chooseSize(10)">
-                        <a href="#" class="button">10x10</a>
-                    </li>
-                </ul>
-                <li>
-                    <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
-                    START!
-                    </a>
+        <div class="start-nav" id="startNav">
+            <a href="#" class="button close-btn" id="close-button" onclick="closeMenu()">&times;</a>
+            <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
+            <p class="p-text">Pick a board size:</p>
+            <ul class="size-button-list">
+                <li class="board-button" id="button6x6" onclick="chooseSize(6)">
+                    <a href="#" class="button">6x6</a>
                 </li>
-            </div>
+                <li class="board-button" id="button8x8" onclick="chooseSize(8)">
+                    <a href="#" class="button">8x8</a>
+                </li>
+                <li class="board-button" id="button10x10" onclick="chooseSize(10)">
+                    <a href="#" class="button">10x10</a>
+                </li>
+            </ul>
+            <li>
+                <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
+                    START!
+                </a>
+            </li>
+        </div>
         <!--</div>-->
         <div class="bg-image bg-clr-darkblue"></div>
 
         <!--    Main Navigation Bar -->
         <nav class="main-nav">
-            <span class="othello-logo">OTHELLO</span>
+            <a href="index.html" class="othello-logo">
+                <span>Home</span>
+                <img src="assets/images/favicon-16x16.png" alt="Othello-Logo">
+            </a>
             <span class="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></span>
             <div class="menu-button-container bg-clr-navajo">
                 <span id="menu_start_btn" class="button menu-button uppercase" onclick="openMenu()">Start</span>
@@ -178,6 +184,7 @@
             </div>
         </div>
         <p class="final-message">Hope you enjoyed the game!</p>
+        <span class="button board-button" onclick="restartButton()">Restart!</span>
         <span class="button board-button" onclick="closeGameOverMessage()">Continue</span>
     </div>
 

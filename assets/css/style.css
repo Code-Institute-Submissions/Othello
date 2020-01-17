@@ -155,6 +155,12 @@ h1 {
     top: .3em;
     left: .8em;
     font-size: 1.5em;
+    color: #000;
+    transition: all .5s
+}
+
+.othello-logo:hover {
+    color: #505050;
 }
 
 .menu-button-container {
