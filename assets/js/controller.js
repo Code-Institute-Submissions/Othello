@@ -31,15 +31,27 @@ function chooseSize(sizeBtn) { //function to select the size of the board. calle
     drawBoard(size);
 }
 
-//close the main navigation, hiding it by changing height 100% to 0 %. 
+//firstly closes the main navigation by changing height 100% to 0 % and it's children elements to display none.
+//then opening the boards main page.
 function closeMenu() {
-    document.getElementById('overlay_startID').style.height = "0%";
-    document.getElementById('startNav').style.display = "none";
+    var startNav = document.getElementById('startNav');
+    var boardSection = document.getElementById('board_section');
+    var boardContainer = document.getElementById('board_container');
+    startNav.style.height = "0em";
+    for(i = 0; i < startNav.children.length; i++) {
+        startNav.children[i].style.display = "none";
+    }
+    
+    boardSection.style.height = "100vh";
+    boardContainer.style.visibility = "visible";
 }
 
 function openMenu() {
-    document.getElementById('overlay_startID').style.height = "100%";
-    document.getElementById('startNav').style.display = "block";
+    var startNav = document.getElementById('startNav');
+    startNav.style.height = "100%";
+    for(i = 0; i < startNav.children.length; i++) {
+        startNav.children[i].style.display = "block";
+    }
     closeRules();
 }
 

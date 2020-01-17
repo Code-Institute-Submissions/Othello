@@ -16,7 +16,7 @@
 <body>
     <header>
         <!--    Landing page/start menu -->
-        <div class="overlay" id="overlay_startID">
+        <!--<div class="overlay" id="overlay_startID">-->
             <div class="start-nav" id="startNav">
                 <a href="#" class="button close-btn" id="close-button" onclick="closeMenu()">&times;</a>
                 <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
@@ -32,11 +32,14 @@
                         <a href="#" class="button">10x10</a>
                     </li>
                 </ul>
-                <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
+                <li>
+                    <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
                     START!
-                </a>
+                    </a>
+                </li>
             </div>
-        </div>
+        <!--</div>-->
+        <div class="bg-image bg-clr-darkblue"></div>
 
         <!--    Main Navigation Bar -->
         <nav class="main-nav">
@@ -106,9 +109,9 @@
     <!--    The Othello board, Score board and which players turn section    -->
     <!-- The scoreboards in this section is only visible on larger displays -->
     <section>
-        <div class="row no-gutters background-image">
-            <div class="col-lg-8 offset-lg-2 col-md-12 board-section">
-                <div class="row no-gutters board-container">
+        <div class="row no-gutters">
+            <div class="col-lg-8 offset-lg-2 col-md-12 board-section" id="board_section">
+                <div class="row no-gutters board-container" id="board_container">
                     <div class="d-none d-lg-block col-lg-2">
                         <div class="white-scoreboard">
                             <div class="circle black-circle"></div>
@@ -127,11 +130,11 @@
                             <p id="white-score-desktop" class="p-text"></p>
                         </div>
                     </div>
-                    
+
                     <!--    These scoreboards is only visible on smaller screens    -->
-                    <div class="container-fluid">
-                        <div class="row no-gutters score-board-row d-lg-none">
-                            <div class="col-md-8 offset-md-2 score-board-row d-lg-none">
+                    <div class="container-fluid d-lg-none scoreb-cont-mv">
+                        <div class="row no-gutters">
+                            <div class="col-md-8 offset-md-2">
                                 <div class="score-board">
                                     <div class="row no-gutters">
                                         <div class="col-3 white-scoreb-mw">
