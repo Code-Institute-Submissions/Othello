@@ -66,34 +66,28 @@
                             <div class="rules-header">
                                 <h2 class="">Rules of Othello</h2>
                             </div>
-                                <h3>Goal of the Game</h3>
-                                <p class="rules-text">The goal is to have the majority of discs of your colour at the end of the game.</p>
-                                </br>
+                            <h3>Goal of the Game</h3>
+                            <p class="rules-text">The goal is to have the majority of discs of your colour at the end of the game.</p>
+                            </br>
                             <h3>Move</h3>
-                                <p class="rules-text">A move is made to outflank your opponent's disc or discs, followed by flipping the outflanked discs to your colour. What it means to outflank is to place a disc so that your opponent's row(s) of disc(s) is bordered by discs
-                                    of your colour at each end.</p>
-                                <img class="rules-img" src="assets/images/start.png" alt="">
-                                <img class="rules-img" src="assets/images/move-2.png" alt="">
-                                <img class="rules-img" src="assets/images/move2-result.png" alt="">
-                                </br>
+                            <p class="rules-text">A move is made to outflank your opponent's disc or discs, followed by flipping the outflanked discs to your colour. What it means to outflank is to place a disc so that your opponent's row(s) of disc(s) is bordered by discs
+                                of your colour at each end.</p>
+                            <img class="rules-img" src="assets/images/start.png" alt="">
+                            <img class="rules-img" src="assets/images/move-2.png" alt="">
+                            <img class="rules-img" src="assets/images/move2-result.png" alt="">
+                            </br>
                             <h2>Game Rules</h2>
-                                <ol>
-                                    <li class="rules-text-li">1. Black moves first</li>
-                                    <li class="rules-text-li">2. If you cannot outflank at least one disc of your opponent, your turn is
-                                        forfeited and your opponent moves instead. However you can not pass your turn if 
-                                        you have a move availible to you.</li>
-                                    <li class="rules-text-li">3. Player can not skip over their own disc to outflank the opponent.
-                                        The only discs that is legal to turn is the discs between your placed disc and the first of your own in that row.</li>
-                                    <li class="rules-text-li">4. Turning discs may only be a direct result of a move that outflanks those discs.
-                                        Discs that appear to be outflanked but were not from the most recent move stays the way they are.
-                                        See picture below as an example:</li>
-                                </ol>
-                                <img class="rules-img" src="assets/images/many-directions.png" alt="">
-                                <ol>
-                                    <li class="rules-text-li">5. Once a disc is placed on the board, it can never move to another square throughout the game</li>
-                                    <li class="rules-text-li">6. When neither player can no longer make a move, the game is over. 
-                                        The player with the most discs win</li>
-                                </ol>
+                            <ol>
+                                <li class="rules-text-li">1. Black moves first</li>
+                                <li class="rules-text-li">2. If you cannot outflank at least one disc of your opponent, your turn is forfeited and your opponent moves instead. However you can not pass your turn if you have a move availible to you.</li>
+                                <li class="rules-text-li">3. Player can not skip over their own disc to outflank the opponent. The only discs that is legal to turn is the discs between your placed disc and the first of your own in that row.</li>
+                                <li class="rules-text-li">4. Turning discs may only be a direct result of a move that outflanks those discs. Discs that appear to be outflanked but were not from the most recent move stays the way they are. See picture below as an example:</li>
+                            </ol>
+                            <img class="rules-img" src="assets/images/many-directions.png" alt="">
+                            <ol>
+                                <li class="rules-text-li">5. Once a disc is placed on the board, it can never move to another square throughout the game</li>
+                                <li class="rules-text-li">6. When neither player can no longer make a move, the game is over. The player with the most discs win</li>
+                            </ol>
                             </br>
                             <p class="p-text">Example of how one move can turn discs in different directions:</p>
                             <img class="rules-img" src="assets/images/many-directions.png" alt="">
@@ -121,6 +115,7 @@
                     </div>
 
                     <div class="col-lg-8 col-md-12 board-col">
+                        <p id="current-player" class="d-none d-lg-block">Your Turn</p>
                         <div id="board"></div>
                     </div>
 
@@ -130,38 +125,36 @@
                             <p id="white-score-desktop" class="p-text"></p>
                         </div>
                     </div>
-                    <p id="current-player" class="d-none d-lg-block">Your Turn</p>
-                </div>
-            </div>
-        </div>
-
-        <!--    These scoreboards is only visible on smaller screens    -->
-        <div class="container-fluid">
-            <!--<div class="container-fluid container-score-board">-->
-            <div class="row score-board-row d-lg-none">
-                <div class="col-md-8 offset-md-2">
-                    <div class="score-board">
-                        <div class="row no-gutters">
-                            <div class="col-3 white-scoreb-mw">
-                                <div class="circle black-circle"></div>
-                                <p id="black-score-mobile" class="p-text">11</p>
-                            </div>
-                            <div class="col-6 m-auto">
-                                <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
-                            </div>
-                            <div class="col-3 black-scoreb-mw">
-                                <div class="circle white-circle"></div>
-                                <p id="white-score-mobile" class="p-text">11</p>
+                    
+                    <!--    These scoreboards is only visible on smaller screens    -->
+                    <div class="container-fluid">
+                        <div class="row no-gutters score-board-row d-lg-none">
+                            <div class="col-md-8 offset-md-2 score-board-row d-lg-none">
+                                <div class="score-board">
+                                    <div class="row no-gutters">
+                                        <div class="col-3 white-scoreb-mw">
+                                            <div class="circle black-circle"></div>
+                                            <p id="black-score-mobile" class="p-text">11</p>
+                                        </div>
+                                        <div class="col-6 m-auto">
+                                            <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
+                                        </div>
+                                        <div class="col-3 black-scoreb-mw">
+                                            <div class="circle white-circle"></div>
+                                            <p id="white-score-mobile" class="p-text">11</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!--</div>-->
         </div>
+
+
     </section>
-    
+
     <!-- Pop Up window which displays when game is over -->
     <div class="pop-up-window" id="game_over">
         <h2 class="pop-up-header uppercase">Game over!</h2>
@@ -174,7 +167,7 @@
             </div>
             <div class="col-6">
                 <p class="p-text">
-                    Black Scored: 
+                    Black Scored:
                     <span id="final_black_score"></span>
                 </p>
             </div>
@@ -182,7 +175,7 @@
         <p class="final-message">Hope you enjoyed the game!</p>
         <span class="button board-button" onclick="closeGameOverMessage()">Continue</span>
     </div>
-    
+
     <div class="pop-up-window" id="switch_player">
         <h2 class="pop-up-header uppercase">You can't move!</h2>
         <div class="row">
@@ -190,12 +183,12 @@
                 <p class="final-message">The other player will take over your turn.</p>
             </div>
         </div>
-        
+
         <span class="button board-button" onclick="closePassTurnMessage()">Continue</span>
     </div>
 
 
-    
+
     <footer class="bg-clr-darkblue">
 
     </footer>
