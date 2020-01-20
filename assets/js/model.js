@@ -70,33 +70,18 @@ function scoreCounter() {
     for (x = 0; x < size; x++) {
         for (y = 0; y < size; y++) {
             player = boardArray[x][y];
-
-            if (player == playerWhite) {
-                whiteScore++
-            }
-            else if (player == playerBlack) {
-                blackScore++
-            }
+            
+            player == playerWhite ? whiteScore++ : whiteScore;
+            player == playerBlack ? blackScore++ : blackScore;
         }
     }
 }
 
 function getScore(player) {
-    if (player == playerWhite) {
-        return whiteScore;
-    } else {
-        return blackScore;
-    }
-}
-/*
-function getScoreWhite() {
-    return whiteScore;
-}
+    return (player == playerWhite ? whiteScore : blackScore); 
+};
 
-function getScoreBlack() {
-    return blackScore;
-}
-*/
+
 function getCurrentPlayer() {
     return currentPlayer;
 }
@@ -121,12 +106,7 @@ function rules(x, y, player, turnDisc = true) {
     var canBePlaced = false;
 
     //first if else statment determines which is the "enemyPlayer" depending on who the current player is
-    if (player == playerWhite) {
-        enemyPlayer = playerBlack;
-    }
-    else {
-        enemyPlayer = playerWhite;
-    }
+    player == playerWhite ? enemyPlayer = playerBlack : enemyPlayer = playerWhite;
 
     if (boardArray[x][y] > 0) { //Checks if there is already a disc at the clicked position
         return false;           //is so, return false. Disc cannot be placed here.
@@ -193,10 +173,5 @@ function rules(x, y, player, turnDisc = true) {
 }
 
 function mTogglePlayer() {
-    if (currentPlayer == playerBlack) {
-        currentPlayer = playerWhite;
-    }
-    else {
-        currentPlayer = playerBlack;
-    }
+currentPlayer == playerBlack ? currentPlayer = playerWhite : currentPlayer = playerBlack;
 }

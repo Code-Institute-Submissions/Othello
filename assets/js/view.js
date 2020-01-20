@@ -24,11 +24,7 @@ function setSquareSizeMQ() {
 }
 
 function setSquareSize() { //decides the size of each square depending on how large the player wants 
-    if (size == 10) {      //the board to be
-        squareSize = 45;
-    } else {
-        squareSize = 55;
-    }
+    size == 10 ? squareSize = 45 : squareSize = 55;
 }
 
 //Creates the squares that will make up the board. Using canvas to be able 
