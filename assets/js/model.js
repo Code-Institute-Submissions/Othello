@@ -95,18 +95,16 @@ function getCurrentPlayer() {
 
 /* directionData holds the 8 different directions on the x and y axis you can flip discs when a
    player makes a move. for each potential move, all 8 directions most be checked to see if there 
-   could be a match and in that case flip discs. 
-   3rd value is for the "computer" to log how many potential discs it could flip for making a particular move.(to be implemented later)
-*/
+   could be a match and in that case flip discs.    */
 var directionData = [
-    [0, +1, 0], //N
-    [+1, +1, 0], //NE
-    [+1, 0, 0], //E
-    [+1, -1, 0], //SE
-    [0, -1, 0], //S
-    [-1, -1, 0], //SW
-    [-1, 0, 0], //W
-    [-1, +1, 0] // NW
+    [0, +1], //N
+    [+1, +1], //NE
+    [+1, 0], //E
+    [+1, -1], //SE
+    [0, -1], //S
+    [-1, -1], //SW
+    [-1, 0], //W
+    [-1, +1] // NW
 ];
 
 //Function for the rules and behaviour of the game.
@@ -183,7 +181,6 @@ function rules(x, y, player, turnDisc = true) {
 
         }
     }
-    console.log("hejhopp");
     return canBePlaced;
 }
 

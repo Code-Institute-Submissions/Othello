@@ -170,34 +170,7 @@ function play(x, y, player) {
             displayCurrentPlayer();
         }
         //lastly this new info in the board array will be displayed to the user.
-        copyBoardArrayToDrawBoard();
-        
-        /* //old function, containing a few bugs
-            copyBoardArrayToDrawBoard(); //Draw the board based on the boardArray
-
-            if (boardFull(size, getScoreBlack(), getScoreWhite())) {
-                isGameOver = true;
-            }
-            else if (!isAnyMovesPossible(currentPlayer)) {
-                if (!couldPreviousPlayerMove) {
-                    console.log("game Over")
-                    isGameOver = true;
-                }
-                if (!isGameOver) {
-                    console.log("Player cannot make a move, switch to oposing player.");
-                    switchPlayerMessage();
-                    mTogglePlayer();
-                    displayCurrentPlayer();
-                    couldPreviousPlayerMove = false;
-                }
-            }
-
-
-            if (isGameOver) {
-                gameOverMessage(getScoreBlack(), getScoreWhite());
-            }
-        } //places the disc data into the boardArray
-        */
+    copyBoardArrayToDrawBoard();
     }
 }
 
@@ -209,7 +182,7 @@ function boardFull(size, scoreBlack, scoreWhite) {
     return false;
 }
 
-// 
+
 function isAnyMovesPossible(player) {
     var canPlay = false;
     for (x = 0; x < size; x++) {
