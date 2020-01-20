@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Actor&display=swap');
 
-
 /************  General margins, paddings, color, fonts etc.   *************/
 
 body {
@@ -44,7 +43,6 @@ h1 {
     padding: 0;
 }
 
-
 /************  Start Page Main Navigation   *************/
 
 .start-nav {
@@ -80,19 +78,10 @@ h1 {
 .close-btn {
     color: #fff;
     font-size: 1.5em;
-    float: top;
     float: right;
     margin: .5em;
 }
-/*
-#close-button {
-    color: #fff;
-    font-size: 1.5em;
-    float: top;
-    float: right;
-    margin: .5em;
-}
-*/
+
 .board-button {
     display: inline-block;
     list-style: none;
@@ -211,6 +200,12 @@ h1 {
     border: 1px solid #003119;
 }
 
+.start-btn-2 {
+    font-size: 1em;
+    padding: 0 .5em;
+    margin: 0;
+}
+
 /************  Score Board   *************/
 
 .circle {
@@ -241,7 +236,6 @@ h1 {
 }
 
 /* section for mobile view scoreboard */
-
 
 .scoreb-cont-mv {
     z-index: -10;
@@ -318,7 +312,6 @@ h1 {
     margin: 1em;
 }
 
-
 /************  Alert Boxes. Game-over, skip turn   *************/
 
 .pop-up-window {
@@ -368,7 +361,6 @@ background-color :#efdfbb;
 
 /************  Media Query   *************/
 
-
 /*** Desktop View ***/
 @media (min-width: 767px) {
 
@@ -385,14 +377,14 @@ background-color :#efdfbb;
     }
 
     .overlay-rules {
-    z-index: 50;
-    text-align: center;
-    height: 0%;
-    width: 100%;
-    position: fixed;
-    overflow: auto;
-    transition: all .5s;
-    background-color: rgba(0, 0, 0, .5);
+        z-index: 50;
+        text-align: center;
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        overflow: auto;
+        transition: all .5s;
+        background-color: rgba(0, 0, 0, .5);
     }
 
     .start-nav {
@@ -482,4 +474,3 @@ background-color :#efdfbb;
         margin-top: 5em;
     }
 }
-

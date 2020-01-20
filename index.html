@@ -57,11 +57,6 @@
             <div id="menu_rules_btn" class="menu-button-container bg-clr-dutch" onclick="openRules()">
                 <a href="#" class="button menu-button rules-button uppercase">Rules</a>
             </div>
-            <!--
-            <div class="menu-button-container">
-                <a href="#" class="button menu-button ff-button uppercase">Fun Facts</a>
-            </div>
-            -->
         </nav>
     </header>
 
@@ -128,7 +123,7 @@
                     </div>
 
                     <div class="col-lg-8 col-md-12 board-col">
-                        <p id="current-player" class="d-none d-lg-block">Press Start to initialize a game!</p>
+                        <p id="current-player" class="d-none d-lg-block">Press <span class="button board-button start-btn-2" onclick="startGame()">Start</span> to initialize a game!</p>
                         <div id="board"></div>
                     </div>
 
@@ -150,7 +145,7 @@
                                             <p id="black-score-mobile" class="p-text">11</p>
                                         </div>
                                         <div class="col-6 m-auto">
-                                            <p class="text-center p-text" id="current-player-mobile">Your Turn</p>
+                                            <p class="text-center p-text" id="current-player-mobile">Go to the start menu to play!</p>
                                         </div>
                                         <div class="col-3 black-scoreb-mw">
                                             <div class="circle white-circle"></div>
@@ -164,8 +159,6 @@
                 </div>
             </div>
         </div>
-
-
     </section>
 
     <!-- Pop Up window which displays when game is over -->
@@ -182,20 +175,6 @@
                     </li>
                 </ul>
             </div>
-        <!--
-            <div class="col-6">
-                <p class="p-text">
-                    White Scored:
-                    <span id="final_white_score"></span>
-                </p>
-            </div>
-            <div class="col-6">
-                <p class="p-text">
-                    Black Scored:
-                    <span id="final_black_score"></span>
-                </p>
-            </div>
-            -->
         </div>
         <p class="final-message">Hope you enjoyed the game!</p>
         <span class="button board-button" onclick="restartButton()">Restart!</span>
@@ -212,14 +191,6 @@
 
         <span class="button board-button" onclick="closePassTurnMessage()">Continue</span>
     </div>
-
-
-
-    <footer class="bg-clr-darkblue">
-
-    </footer>
-
-
 
     <script type="text/javascript" src="assets/js/view.js"></script>
     <script type="text/javascript" src="assets/js/model.js"></script>

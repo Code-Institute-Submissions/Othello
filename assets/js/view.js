@@ -4,14 +4,15 @@
 //this media query is used for setting the board size and use of the collapse navbar
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
+    const mqTablet = window.matchMedia( "(max-width: 1768px)" );
     if (mqMediumMobile.matches) {
         //If the hamburger menu is availible it will toggle so it closes when a page is selected
         var startButton = document.getElementById('menu_start_btn');
         var rulesButton = document.getElementById('menu_rules_btn');
         startButton.setAttribute("onclick", "openMenu(); toggleNav()");
         rulesButton.setAttribute("onclick", "openRules(); toggleNav();");
-    }
-    
+    } 
+
     if (mqMediumMobile.matches && size == 10) {
         squareSize = 32;
     } else if(mqMediumMobile.matches && size == 8) {
