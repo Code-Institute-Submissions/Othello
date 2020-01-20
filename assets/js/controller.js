@@ -37,6 +37,7 @@ function closeMenu() {
     var startNav = document.getElementById('startNav');
     var boardSection = document.getElementById('board_section');
     var boardContainer = document.getElementById('board_container');
+    document.getElementById('mv-scoreboard').style.visibility = "visible";
     startNav.style.height = "0em";
     for(i = 0; i < startNav.children.length; i++) {
         startNav.children[i].style.display = "none";
@@ -48,7 +49,8 @@ function closeMenu() {
 
 function openMenu() {
     var startNav = document.getElementById('startNav');
-    startNav.style.height = "25em";
+    document.getElementById('mv-scoreboard').style.visibility = "hidden";
+    startNav.style.height = "28em";
     for(i = 0; i < startNav.children.length; i++) {
         startNav.children[i].style.display = "block";
     }

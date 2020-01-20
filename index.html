@@ -19,10 +19,10 @@
 <body>
     <header>
         <!--    Landing page/start menu -->
-        <!--<div class="overlay" id="overlay_startID">-->
         <div class="start-nav" id="startNav">
             <a href="#" class="button close-btn" id="close-button" onclick="closeMenu()">&times;</a>
             <h1 class="header-h1">Welcome to <span class="uppercase">Othello!</span></h1>
+            <p class="p-small">This is a 2 player offline version of Othello.</p> 
             <p class="p-text">Pick a board size:</p>
             <ul class="size-button-list">
                 <li class="board-button" id="button6x6" onclick="chooseSize(6)">
@@ -41,7 +41,7 @@
                 </a>
             </li>
         </div>
-        <!--</div>-->
+
         <div class="bg-image bg-clr-darkblue"></div>
 
         <!--    Main Navigation Bar -->
@@ -140,7 +140,7 @@
                     </div>
 
                     <!--    These scoreboards is only visible on smaller screens    -->
-                    <div class="container-fluid d-lg-none scoreb-cont-mv">
+                    <div class="container-fluid d-lg-none scoreb-cont-mv" id="mv-scoreboard">
                         <div class="row no-gutters">
                             <div class="col-md-8 offset-md-2">
                                 <div class="score-board">
@@ -172,6 +172,17 @@
     <div class="pop-up-window" id="game_over">
         <h2 class="pop-up-header uppercase">Game over!</h2>
         <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li class="style-none"> 
+                       <p class="p-text">Black: <span id="final_white_score"></span></p>
+                    </li>
+                    <li class="style-none">
+                        <p class="p-text">White: <span id="final_black_score"></span></p>
+                    </li>
+                </ul>
+            </div>
+        <!--
             <div class="col-6">
                 <p class="p-text">
                     White Scored:
@@ -184,6 +195,7 @@
                     <span id="final_black_score"></span>
                 </p>
             </div>
+            -->
         </div>
         <p class="final-message">Hope you enjoyed the game!</p>
         <span class="button board-button" onclick="restartButton()">Restart!</span>
