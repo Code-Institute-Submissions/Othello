@@ -81,6 +81,14 @@ function scoreCounter() {
     }
 }
 
+function getScore(player) {
+    if (player == playerWhite) {
+        return whiteScore;
+    } else {
+        return blackScore;
+    }
+}
+/*
 function getScoreWhite() {
     return whiteScore;
 }
@@ -88,7 +96,7 @@ function getScoreWhite() {
 function getScoreBlack() {
     return blackScore;
 }
-
+*/
 function getCurrentPlayer() {
     return currentPlayer;
 }

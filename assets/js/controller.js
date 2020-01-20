@@ -123,7 +123,7 @@ function copyBoardArrayToDrawBoard() {
     }
 
     //get scores from model and send it to display for the players
-    displayScore(getScoreWhite(), getScoreBlack());
+    displayScore(getScore(playerWhite), getScore(playerBlack));
 
     //get current player and send to display for the players
     displayCurrentPlayer(getCurrentPlayer());
@@ -147,7 +147,7 @@ function play(x, y, player) {
     var isGameOver = false;
     var playerCouldMove = true;
     if (placeDisc(x, y, player)) { //checks if the picked position is availible.
-        if (boardFull(size, getScoreBlack(), getScoreWhite())) { //if the board is full, the game is over.
+        if (boardFull(size, getScore(playerWhite), getScore(playerBlack))) { //if the board is full, the game is over.
             isGameOver = true;
         }
         //a disc could be placed. First thing to do before next move is to toggle player.
@@ -162,7 +162,7 @@ function play(x, y, player) {
         }
 
         if (isGameOver) { //If "isGameOver" is true, the message will be displayed
-            gameOverMessage(getScoreBlack(), getScoreWhite());
+            gameOverMessage(getScore(playerWhite), getScore(playerBlack));
         }
         else if (!playerCouldMove) { //if the player could not move but the next one can,
             switchPlayerMessage();   //a message will be displayed, players turn will toggle,
