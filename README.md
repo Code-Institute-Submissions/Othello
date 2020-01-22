@@ -2,11 +2,6 @@
   
 This is my second milestone project for Code Institute, a interactive front-end project. As this project is suposed to bring together and 
 practice my Javascript skills, I decided to build a two player, mobile first, offline version of the board game Othello!
-
-One or two paragraphs providing an overview of your project.
-
-Essentially, this part is your sales pitch.
-
 ___
 
 ## UX
@@ -42,13 +37,6 @@ become a larger project.
 * Othello is said to take a minute to learn, but a lifetime to master. This game can be continually expanded.
 first to a single player game mode, and then expand on the functionallity of the "opponent" in this game mode,
 making it more clever and harder to play against.  
-
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-
-As a user type, I want to perform an action, so that I can achieve a goal.
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 ______
 
 ## Features
@@ -94,19 +82,8 @@ takes the player back to the start menu.
 This can be expandable as well by making the opponent more difficult, making it possible to implement different difficulties as well.
 2. It would be possible to expand this to be an online game where you can play against other players remotly.
 This can also be expanded with logins and scoreboards. 
+____
 
-
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
-
-Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
-
-Features Left to Implement
-Another feature idea
 ##Technologies Used
 #### languages, Libraries, Version Control, Editors:
 * **Main Languages Used:** HTML, CSS and Javascript was used to create this project.
@@ -126,6 +103,7 @@ ____
 The functionality of the game has been manually tested at different stages of this project. 
 One principle that has been used is regression testing after each added functionality.
 Another technique was to console log the data from a specific function in development.  
+A regular test after each modification would include: 
 * Does the page still load?
 * Does the game layout still looks the same way on all platforms?
 * Does the menu buttons still work? 
@@ -171,8 +149,10 @@ All of these except one have been modified and edited to now pass the tests. The
 due to lack of heading tag on one of the sections have not been edited.
 
 #### responsiveness
-* This site has been tested on multiple browsers and devices, including:. Almost all changes have been simultaneously 
-checked on mobile devices and laptop computer. A few bugs have appeared with the size of the board and 
+* This site has been tested on multiple browsers and devices.
+**browsers including:** Microsoft Edge, Safari, Chrome, Samsung Internet.
+**Devices including:** Android phones and IOS, Ipad, windows computer with resolution 1920 x 1080, and 15-inch Macbook.    
+Almost all changes have been simultaneously checked on mobile devices and laptop computer. A few bugs have appeared with the size of the board and 
 position of the scoreboard underneath. One being on browsers with a menu at the bottom, for example Samsung Internet.
 This menu pushed the scoreboard up and positioning it underneath the board itself. This has been fixed by positioning
 the scoreboard from the top.
@@ -183,38 +163,49 @@ and dividing it by half: "calc((100% - "+ boardWidth +")/2)";. This keeps the bo
 In the tools it seems as the board doesn't rezise for smaller screens but if you open the game on a mobile device or tablet
 it looks fine. Therefore all changes to the looks of the page have been checked on both mobile and tablet devices throughout 
 this project. 
+____
+##Deployment
+This project used git as version control and Github Pages to deploy straight from the master branch.
+There is no difference between the deployed version and the development version.
+**The steps I took to deploy this project:**
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+* Under my site's (Othello) reposity I went to settings.
+* Under "GitHub Pages", I used the source drop-down and choosed master-branch as publishing source.
+* you can find the link to the website under the "Github Pages" section, where there is a notification stating:
+"Your site is published at "https://heimirdavid.github.io/Othello/".
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+**To clone this website:**
+1. Navigate to the repository from the main page.
+2. Click the green button "Clone or download", located to the right under the repository name.
+3. Click the icon to the right of the URL to copy the URL of the clone.
+4. Open the IDE of your choice and open its terminal window.
+5. type in "git clone " followed by the copied URL.
+6. Press Enter to clone the repository. 
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+**To run locally:**
+* Clone repository to your local file system.
+* Open the Othello folder.
+* Navigate to the index.html file.
+* Open it with your prefered web browser. 
 
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+## Credits
+* Instructions for how to use the canvas and draw circles upon it came from w3schools.  
+  link: https://www.w3schools.com/tags/canvas_arc.asp
+* The solution for using media query with JavaScript came from stackoverflow.   
+  link: https://stackoverflow.com/questions/31511001/is-there-a-javascript-equivalent-to-using-media-query
+* Additional lesson on MVC appart from the teaching from my father came from this tutorial:
+  link: https://www.youtube.com/watch?v=1IsL6g2ixak 
+* The solution for creating the 2 dimensional board array came from geeksforgeeks.
+  link: https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+#### Content
+**Rules:** Both the rules that the game is built upon and the rules page is based on the documentation
+from the World Othello Federation. 
+Here is a link to their rules site: https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+**Media**
+The logo was made by Palli Kristmundsson and i have his approval for using it.
+The background image were obtained from unsplash, from Riho Kroll: https://unsplash.com/photos/RgLaH00kZOk
 
-Deployment
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-Credits
-Content
-The text for section Y was copied from the Wikipedia article Z
-Media
-The photos used in this site were obtained from ...
-Acknowledgements
-I received inspiration for this project from X
+## Acknowledgements
+### Special Thanks: 

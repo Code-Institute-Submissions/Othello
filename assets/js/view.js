@@ -2,6 +2,7 @@
 ////// Media Queries ////////
 
 //this media query is used for setting the board size and use of the collapse navbar
+//Idea for using media query this way came from stackoverflow: https://stackoverflow.com/questions/31511001/is-there-a-javascript-equivalent-to-using-media-query
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
     const mqTablet = window.matchMedia( "(max-width: 1768px)" );
@@ -136,24 +137,3 @@ function gameOverMessage(w, b) {
 function switchPlayerMessage() {
     document.getElementById('switch_player').style.display = "block";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
