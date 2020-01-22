@@ -35,11 +35,13 @@
                     <a href="#" class="button">10x10</a>
                 </li>
             </ul>
-            <li>
-                <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
-                    START!
-                </a>
-            </li>
+            <ul>
+                <li>
+                    <a href="#" id="start-button" class=" button board-button" onclick="startGame()">
+                        START!
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <div class="bg-image bg-clr-darkblue"></div>
@@ -48,7 +50,7 @@
         <nav class="main-nav">
             <a href="index.html" class="othello-logo">
                 <span>Home</span>
-                <img src="assets/images/favicon-16x16.png" alt="Othello-Logo">
+                <img id="img-logo" src="assets/images/favicon-16x16.png" alt="Othello-Logo">
             </a>
             <span class="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></span>
             <div class="menu-button-container bg-clr-navajo">
@@ -75,14 +77,14 @@
                             </div>
                             <h3>Goal of the Game</h3>
                             <p class="rules-text">The goal is to have the majority of discs of your colour at the end of the game.</p>
-                            </br>
+                            <br>
                             <h3>Move</h3>
                             <p class="rules-text">A move is made to outflank your opponent's disc or discs, followed by flipping the outflanked discs to your colour. What it means to outflank is to place a disc so that your opponent's row(s) of disc(s) is bordered by discs
                                 of your colour at each end.</p>
-                            <img class="rules-img" src="assets/images/start.png" alt="">
-                            <img class="rules-img" src="assets/images/move-2.png" alt="">
-                            <img class="rules-img" src="assets/images/move2-result.png" alt="">
-                            </br>
+                            <img class="rules-img" src="assets/images/start.png" alt="example-illustration">
+                            <img class="rules-img" src="assets/images/move-2.png" alt="example-illustration">
+                            <img class="rules-img" src="assets/images/move2-result.png" alt="example-illustration">
+                            <br>
                             <h2>Game Rules</h2>
                             <ol>
                                 <li class="rules-text-li">1. Black moves first</li>
@@ -90,15 +92,15 @@
                                 <li class="rules-text-li">3. Player can not skip over their own disc to outflank the opponent. The only discs that is legal to turn is the discs between your placed disc and the first of your own in that row.</li>
                                 <li class="rules-text-li">4. Turning discs may only be a direct result of a move that outflanks those discs. Discs that appear to be outflanked but were not from the most recent move stays the way they are. See picture below as an example:</li>
                             </ol>
-                            <img class="rules-img" src="assets/images/many-directions.png" alt="">
+                            <img class="rules-img" src="assets/images/many-directions.png" alt="example-illustration">
                             <ol>
-                                <li class="rules-text-li">5. Once a disc is placed on the board, it can never move to another square throughout the game</li>
-                                <li class="rules-text-li">6. When neither player can no longer make a move, the game is over. The player with the most discs win</li>
+                                <li class="rules-text-li">5. Once a disc is placed on the board, it can never move to another square throughout the game.</li>
+                                <li class="rules-text-li">6. When neither player can no longer make a move, the game is over. The player with the most discs win.</li>
                             </ol>
-                            </br>
+                            <br>
                             <p class="p-text">Example of how one move can turn discs in different directions:</p>
-                            <img class="rules-img" src="assets/images/many-directions.png" alt="">
-                            <img class="rules-img" src="assets/images/directions-result.png" alt="">
+                            <img class="rules-img" src="assets/images/many-directions.png" alt="example-illustration">
+                            <img class="rules-img" src="assets/images/directions-result.png" alt="example-illustration">
                         </div>
                     </div>
 
@@ -168,10 +170,10 @@
             <div class="col-12">
                 <ul>
                     <li class="style-none"> 
-                       <p class="p-text">Black: <span id="final_white_score"></span></p>
+                       <p class="p-text">White: <span id="final_white_score"></span></p>
                     </li>
                     <li class="style-none">
-                        <p class="p-text">White: <span id="final_black_score"></span></p>
+                        <p class="p-text">Black: <span id="final_black_score"></span></p>
                     </li>
                 </ul>
             </div>
@@ -192,9 +194,9 @@
         <span class="button board-button" onclick="closePassTurnMessage()">Continue</span>
     </div>
 
-    <script type="text/javascript" src="assets/js/view.js"></script>
-    <script type="text/javascript" src="assets/js/model.js"></script>
-    <script type="text/javascript" src="assets/js/controller.js"></script>
+    <script src="assets/js/view.js"></script>
+    <script src="assets/js/model.js"></script>
+    <script src="assets/js/controller.js"></script>
     <script>
         drawBoard(8, 8);
     </script>

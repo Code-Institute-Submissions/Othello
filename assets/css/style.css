@@ -154,7 +154,7 @@ h1 {
     color: #000;
     cursor: pointer;
     position: relative;
-    top: .4;
+    top: .4em;
     right: 1em;
     font-size: 1.8em;
 }
@@ -169,6 +169,10 @@ h1 {
     font-size: 1.5em;
     top: .2em;
     right:1.4em;
+}
+
+#img-logo {
+    height: 1.2em;
 }
 
 /************  The Board   *************/
@@ -462,7 +466,6 @@ background-color :#efdfbb;
     .menu-button {
         display: inline-block;
         float: none;
-        padding: auto;
         margin-left: 2.5em;
     }
     

@@ -65,8 +65,8 @@ corner without resetting a gaming session.
 This page is where the board game is. If the game has been initialized four discs will be displayed 
 at the center of the board. Othervise the user will be shown an empty board with a message encouraging him/her to start a game.
 The board is clickable and if the player click on a square that is a valid move, a disc will appear there and the 
-others that should flipp will do so. 
-*In Desktop view*
+others that should flipp will do so.    
+*In Desktop view:*   
 Above the board and centered, is a text displaying which player should make the next move.
 On each side of the board is a scorecounter displaying the disc of the player and a number
 with the current score of respective player.
@@ -121,8 +121,10 @@ links: Cloud9 - https://aws.amazon.com/cloud9/
        Gitpod - https://www.gitpod.io/
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+____
+## Testing
 
-Testing
+
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
