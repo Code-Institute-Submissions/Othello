@@ -123,7 +123,66 @@ links: Cloud9 - https://aws.amazon.com/cloud9/
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 ____
 ## Testing
+The functionality of the game has been manually tested at different stages of this project. 
+One principle that has been used is regression testing after each added functionality.
+Another technique was to console log the data from a specific function in development.  
+* Does the page still load?
+* Does the game layout still looks the same way on all platforms?
+* Does the menu buttons still work? 
+* Is it still possible to click on a square and place a disc? 
+* Does the placement of a disc flipp any other discs, and if so, correctly?
+* Does this add on to the scorecounters?
+* Does it toggle between players? 
+* Does the pop-up messages still work at intended places?
+* Does the game end at correct stages?
+* Does the game over menu takes you to where you want to go?
 
+### Game Functionality 
+Due to the way this project has been structured with modules that serves a precise purpose each 
+functionality has been easy to test straight away if it works, does nothing, or maybe even made the game worse. 
+Example of this is how the functions to draw the board was built first, and then the one that draws the squares 
+before any logistics of where they are supposed to be was made. The process of moving player data into the board array
+was also possible to test straight away. If a player placed a disc somewhere on the board, it's supposed to show in the 
+array and vice versa. 
+The game rules therefore was easy to put in place due to the fact that you would straight away see if something 
+wasn't working the way it was intended to. One example of a bug that was clearified as the rules started to work was 
+the directions of a row one could flip discs. Two directions didn't work so all were tested with both black and white player.
+The south and the northwest direction didn't work and the fault was in the direction array where these values were wrong.
+Another interesting bug was in the beginning of the rules development as player white was not able to flip any discs while 
+player black was able to. It took a long time to realize that it was due to a missing # on the color value of the disc itself.
+
+One issue was the flow of the game. A bug that was discovered by my brother was the fact that if one player couldn't make a move, but the other one could, 
+next time this would happen the game would notify that it was over. Which was not correct. The game is only over when no player
+can make a move. 
+This needed furter testing to works after each player made a move, as followed:
+* Is the board full?
+* One player can not make a move? 
+* No player can not make a move and the board is not full.
+These three criterias have been taken care of and now works fine.
+
+#### HTML and CSS
+* ***W3C validator*** was used to test the CSS and HTML files which both returned a few varnings.
+*CSS:* Two varnings on the .menu-button class, one in mobile view and one in desktop. Both were missing values on the top property.    
+*HTML:* 1. First error due to an li element being a direct child of a div.
+        2. Error for break tag containing a closing tag. 
+        3. Warning due to type attributes on the JavaScript resources.
+        4. Warning due to section not containing a heading.
+All of these except one have been modified and edited to now pass the tests. The warning 
+due to lack of heading tag on one of the sections have not been edited.
+
+#### responsiveness
+* This site has been tested on multiple browsers and devices, including:. Almost all changes have been simultaneously 
+checked on mobile devices and laptop computer. A few bugs have appeared with the size of the board and 
+position of the scoreboard underneath. One being on browsers with a menu at the bottom, for example Samsung Internet.
+This menu pushed the scoreboard up and positioning it underneath the board itself. This has been fixed by positioning
+the scoreboard from the top.
+Another issue has been the centering of the board. Since it is created using javascript it was a different challenge for
+me to center it. It's now centered with a function that calculates the boards width, exctract it from 100% of its container,
+and dividing it by half: "calc((100% - "+ boardWidth +")/2)";. This keeps the board centered on all of the tested screen sizes and browsers.    
+***Side Note:*** Chrome Developer Tools seem to not be completely accurate with the size of the board and the page on smaller screens.
+In the tools it seems as the board doesn't rezise for smaller screens but if you open the game on a mobile device or tablet
+it looks fine. Therefore all changes to the looks of the page have been checked on both mobile and tablet devices throughout 
+this project. 
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
