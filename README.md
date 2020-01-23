@@ -1,6 +1,6 @@
 # Othello
   
-This is my second milestone project for Code Institute, a interactive front-end project. As this project is suposed to bring together and 
+This is my second milestone project for Code Institute, an interactive front-end project. As this project is suposed to bring together and 
 practice my Javascript skills, I decided to build a two player, mobile first, offline version of the board game Othello!
 ___
 
@@ -10,10 +10,10 @@ ___
 
 ***for the gamer:***
 
-* as a user, I wish to play a game of Othello without needing the board game.
-* as a user, I wish to challenge someone around me for a game of othello.
-* as a user, I wish to read the rules of the game to clearify how it works. 
-* as a user, I wish to practice certain patterns to improve my skills at othello.
+* As a user, I wish to play a game of Othello without needing the board game.
+* As a user, I wish to challenge someone around me for a game of othello.
+* As a user, I wish to read the rules of the game to clearify how it works. 
+* As a user, I wish to practice certain patterns to improve my skills at othello.
 
 *The ways this project help the user achieve these goals:*
 
@@ -37,6 +37,14 @@ become a larger project.
 * Othello is said to take a minute to learn, but a lifetime to master. This game can be continually expanded.
 first to a single player game mode, and then expand on the functionallity of the "opponent" in this game mode,
 making it more clever and harder to play against.  
+
+### Wireframes, Flowcharts and Communitaction Diagrams
+
+#### WireFrames: 
+
+#### Flowcharts: 
+
+#### Communication Diagrams: 
 ______
 
 ## Features
@@ -92,6 +100,7 @@ ____
 Link: https://getbootstrap.com/docs/4.0/getting-started/download/#bootstrapcdn
 2. Fontawesome was used for the menu icon on smaller screens.
 link: https://fontawesome.com/icons?d=gallery
+* **MVC Architecture:** MVC (Model-View-Controller) was used in this project as the design and fundamentals of how it is structured.
 * **Version Control:** git was used for version control in this project and github to host the deployed project and the repository.
 * **Editors:** For the majority of the project Cloud9 was used but in the end it was moved over to gitpod.
 links: Cloud9 - https://aws.amazon.com/cloud9/ 
@@ -164,9 +173,9 @@ In the tools it seems as the board doesn't rezise for smaller screens but if you
 it looks fine. Therefore all changes to the looks of the page have been checked on both mobile and tablet devices throughout 
 this project. 
 ____
-##Deployment
+## Deployment
 This project used git as version control and Github Pages to deploy straight from the master branch.
-There is no difference between the deployed version and the development version.
+There is no difference between the deployed version and the development version.   
 **The steps I took to deploy this project:**
 
 * Under my site's (Othello) reposity I went to settings.
@@ -197,15 +206,22 @@ There is no difference between the deployed version and the development version.
   link: https://www.youtube.com/watch?v=1IsL6g2ixak 
 * The solution for creating the 2 dimensional board array came from geeksforgeeks.
   link: https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
+* Favicon generator used.
+  link: https://www.websiteplanet.com/sv/webtools/favicon-generator/
 
+**All of these are also credited for and linked to in the code where they are used.**
 #### Content
 **Rules:** Both the rules that the game is built upon and the rules page is based on the documentation
 from the World Othello Federation. 
 Here is a link to their rules site: https://www.worldothello.org/about/about-othello/othello-rules/official-rules/english
 
 **Media**
-The logo was made by Palli Kristmundsson and i have his approval for using it.
-The background image were obtained from unsplash, from Riho Kroll: https://unsplash.com/photos/RgLaH00kZOk
+* The logo was made by Palli Kristmundsson and i have his approval for using it.
+* The background image were obtained from unsplash, from Riho Kroll: https://unsplash.com/photos/RgLaH00kZOk
 
 ## Acknowledgements
 ### Special Thanks: 
+* To my mentor Moosa Hassan for supporting me in this project and guiding me with great feedback and help.
+* To Palli Kristmundsson, my father for teaching me about MVC architecture as a way of structuring 
+and building a project, which this is based on. As well as teaching me about fundamental programming solutions and long 
+talks into the night back and forth on logic and structure. 
