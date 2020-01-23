@@ -6,9 +6,9 @@ ___
 
 ## UX
 
-#### User stories 
+### User Stories 
 
-***for the gamer:***
+***For the gamer:***
 
 * As a user, I wish to play a game of Othello without needing the board game.
 * As a user, I wish to challenge someone around me for a game of othello.
@@ -22,12 +22,12 @@ ___
 * By providing clear rules and instructions which the game follows as well.
 * By providing a game that flipps all discs correctly after the rules. 
 
-***for the developer***
+***For the developer***
 
 * As a developer, I want to write vanilla Javascript to put what I've been learning to the test.
 * As a developer, I want to make a game which has a clear structure and set of rules and create 
 that logistics from scratch. 
-* as a developer, i wish to create a project that can grow as my skills grow. With the potential to later
+* As a developer, I wish to create a project that can grow as my skills grow. With the potential to later
 become a larger project. 
 
 *The ways this project helped me, the developer to achieve these goals:*
@@ -35,33 +35,37 @@ become a larger project.
 * The Othello game is quite simple board game, but has a clear set of rules a move can be made. 
 * The development of this game has to be structured around the rules of the game to make sure no false moves can be made.
 * Othello is said to take a minute to learn, but a lifetime to master. This game can be continually expanded.
-first to a single player game mode, and then expand on the functionallity of the "opponent" in this game mode,
+First to a single player game mode, and then expand on the functionallity of the "opponent" in this game mode,
 making it more clever and harder to play against.  
 
 ### Wireframes, Flowcharts and Communitaction Diagrams
 
-#### WireFrames: 
-[Start Page, Desktop and Mobile View]()
-[Game Page, Desktop View]()
-[Game Page, Mobile View]()
-
+#### Wireframes: 
+[Start Page, Desktop and Mobile View](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/wireframe-start.jpg)
+      
+[Game Page, Desktop View](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/wireframe-dv.jpg)
+      
+[Game Page, Mobile View](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/wireframe-mv.jpg)
+      
 #### Flowcharts: 
-[First Game Logistics]()
-[Rules Function Logistics]()
-[Game flow function, controls after a placed disc]()
-
+[First Game Logistics](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/first-logistics-flowchart.jpg)
+      
+[Rules Function Logistics](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/rules-function.jpg)
+      
+[Game Flow Function, controls after a placed disc](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/game-flow.jpg)
+      
 #### Communication Diagrams: 
-[Initialize the Board]()
-
+[Initialize the Board](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/initialize-board.jpg)
+      
 #### Other:
-[Direction array Logistics]()
+[Direction Array Logistics](https://github.com/HeimirDavid/Othello/blob/master/assets/images/readme-img/direction-array.jpg)
 ______
 
 ## Features
 
 #### Feature 1 - Start Menu
 The start menu is the first thing a user sees when opening the game.
-firstly, it welcomes the player and describes what version of othello this is.
+Firstly, it welcomes the player and describes what version of othello this is.
 There are two things asked of the player, which board size they wish to use, and to press the "start!" button.
 Board size 8x8 is the default size.    
 This menu can be accessed at any time during the game. Therefore this menu can also be closed at the top right
@@ -102,7 +106,7 @@ This can be expandable as well by making the opponent more difficult, making it 
 This can also be expanded with logins and scoreboards. 
 ____
 
-##Technologies Used
+## Technologies Used
 #### languages, Libraries, Version Control, Editors:
 * **Main Languages Used:** HTML, CSS and Javascript was used to create this project.
 * **Libraries:** 
@@ -111,12 +115,11 @@ Link: https://getbootstrap.com/docs/4.0/getting-started/download/#bootstrapcdn
 2. Fontawesome was used for the menu icon on smaller screens.
 link: https://fontawesome.com/icons?d=gallery
 * **MVC Architecture:** MVC (Model-View-Controller) was used in this project as the design and fundamentals of how it is structured.
-* **Version Control:** git was used for version control in this project and github to host the deployed project and the repository.
+* **Version Control:** Git was used for version control in this project and github to host the deployed project and the repository.
 * **Editors:** For the majority of the project Cloud9 was used but in the end it was moved over to gitpod.
 links: Cloud9 - https://aws.amazon.com/cloud9/ 
        Gitpod - https://www.gitpod.io/
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 ____
 ## Testing
 The functionality of the game has been manually tested at different stages of this project. 
@@ -151,7 +154,7 @@ player black was able to. It took a long time to realize that it was due to a mi
 One issue was the flow of the game. A bug that was discovered by my brother was the fact that if one player couldn't make a move, but the other one could, 
 next time this would happen the game would notify that it was over. Which was not correct. The game is only over when no player
 can make a move. 
-This needed furter testing to works after each player made a move, as followed:
+This needed furter testing. After each player make a move controls need to be made, as followed:
 * Is the board full?
 * One player can not make a move? 
 * No player can not make a move and the board is not full.
@@ -190,7 +193,7 @@ There is no difference between the deployed version and the development version.
 
 * Under my site's (Othello) reposity I went to settings.
 * Under "GitHub Pages", I used the source drop-down and choosed master-branch as publishing source.
-* you can find the link to the website under the "Github Pages" section, where there is a notification stating:
+* You can find the link to the website under the "Github Pages" section, where there is a notification stating:   
 "Your site is published at "https://heimirdavid.github.io/Othello/".
 
 **To clone this website:**
@@ -212,11 +215,11 @@ There is no difference between the deployed version and the development version.
   link: https://www.w3schools.com/tags/canvas_arc.asp
 * The solution for using media query with JavaScript came from stackoverflow.   
   link: https://stackoverflow.com/questions/31511001/is-there-a-javascript-equivalent-to-using-media-query
-* Additional lesson on MVC appart from the teaching from my father came from this tutorial:
+* Additional lesson on MVC appart from the teaching from my father came from this tutorial:     
   link: https://www.youtube.com/watch?v=1IsL6g2ixak 
-* The solution for creating the 2 dimensional board array came from geeksforgeeks.
+* The solution for creating the 2 dimensional board array came from geeksforgeeks.     
   link: https://www.geeksforgeeks.org/how-to-create-two-dimensional-array-in-javascript/?fbclid=IwAR3DWeciHn7i4xnejNfmnbIVbJGQcl4SiTJpTjQvdJuM--DCtYzpYPatp0c*/
-* Favicon generator used.
+* Favicon generator used.    
   link: https://www.websiteplanet.com/sv/webtools/favicon-generator/
 
 **All of these are also credited for and linked to in the code where they are used.**

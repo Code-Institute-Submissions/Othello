@@ -5,7 +5,7 @@
 //Idea for using media query this way came from stackoverflow: https://stackoverflow.com/questions/31511001/is-there-a-javascript-equivalent-to-using-media-query
 function setSquareSizeMQ() {
     const mqMediumMobile = window.matchMedia( "(max-width: 425px)" );
-    const mqTablet = window.matchMedia( "(max-width: 1768px)" );
+    
     if (mqMediumMobile.matches) {
         //If the hamburger menu is availible it will toggle so it closes when a page is selected
         var startButton = document.getElementById('menu_start_btn');

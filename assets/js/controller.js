@@ -6,7 +6,7 @@ function chooseSize(sizeBtn) { //function to select the size of the board. calle
         document.getElementById('button6x6'),
         document.getElementById('button8x8'),
         document.getElementById('button10x10')
-    ]
+    ];
     //for loop for creating radio buttons. removes the class active on all first.
     for (i = 0; i < button.length; i++) {
         button[i].classList.remove('board-button-active');
@@ -58,7 +58,7 @@ function openMenu() {
 }
 
 //toggle nav bar. checks if the navbar is closed or open with a boolean statement.
-// runs a for loop to give the all 3 of the menu containers the appropriate width. 
+// runs a for loop to give the 2 of the menu containers the appropriate width. 
 function toggleNav() {
     var menu = document.getElementsByClassName('menu-button-container');
     var myWidth;
@@ -138,7 +138,7 @@ function initDiscs(size) {
     //false value here is to avoid the rules so the discs can be placed without meeting the demands of the rules function.
     placeDisc(firstDisc, firstDisc, playerWhite, false);
     placeDisc(firstDisc + 1, firstDisc + 1, playerWhite, false);
-    placeDisc(firstDisc + 1, firstDisc, playerBlack, false)
+    placeDisc(firstDisc + 1, firstDisc, playerBlack, false);
     placeDisc(firstDisc, firstDisc + 1, playerBlack, false);
 }
 
@@ -201,7 +201,7 @@ function isAnyMovesPossible(player) {
 function init() {
     drawBoard(size);
     buildBoardArray(size);
-    initDiscs(size)
+    initDiscs(size);
     copyBoardArrayToDrawBoard();
     closeMenu();
 }

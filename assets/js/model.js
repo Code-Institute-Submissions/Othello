@@ -6,7 +6,6 @@ const playerBlack = 2;
 var currentPlayer = playerBlack;
 var menuOpen = false;
 var boardArray = new Array(size);
-var couldPreviousPlayerMove = true;
 var whiteScore = 0;
 var blackScore = 0;
 
@@ -79,7 +78,7 @@ function scoreCounter() {
 
 function getScore(player) {
     return (player == playerWhite ? whiteScore : blackScore); 
-};
+}
 
 
 function getCurrentPlayer() {
@@ -173,5 +172,5 @@ function rules(x, y, player, turnDisc = true) {
 }
 
 function mTogglePlayer() {
-currentPlayer == playerBlack ? currentPlayer = playerWhite : currentPlayer = playerBlack;
+    currentPlayer == playerBlack ? currentPlayer = playerWhite : currentPlayer = playerBlack;
 }
