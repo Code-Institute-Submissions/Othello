@@ -41,10 +41,20 @@ making it more clever and harder to play against.
 ### Wireframes, Flowcharts and Communitaction Diagrams
 
 #### WireFrames: 
+[Start Page, Desktop and Mobile View]()
+[Game Page, Desktop View]()
+[Game Page, Mobile View]()
 
 #### Flowcharts: 
+[First Game Logistics]()
+[Rules Function Logistics]()
+[Game flow function, controls after a placed disc]()
 
 #### Communication Diagrams: 
+[Initialize the Board]()
+
+#### Other:
+[Direction array Logistics]()
 ______
 
 ## Features
