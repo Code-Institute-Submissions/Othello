@@ -1,7 +1,7 @@
 # Othello
   
-This is my second milestone project for Code Institute, an interactive front-end project. As this project is suposed to bring together and 
-practice my Javascript skills, I decided to build a two player, mobile first, offline version of the board game Othello!
+This is my second milestone project for Code Institute, an interactive front-end project. As this project is supposed to bring together and 
+practice my JavaScript skills, I decided to build a two player, mobile first, offline version of the board game Othello!
 ___
 
 ## UX
